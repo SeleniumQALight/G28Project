@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple App. VovkTest
  */
 public class AppTest 
     extends TestCase
@@ -36,3 +36,4 @@ public class AppTest
         assertTrue( true );
     }
 }
+// end
