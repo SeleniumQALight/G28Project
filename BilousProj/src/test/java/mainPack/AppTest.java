@@ -6,13 +6,15 @@ import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
+ * Test
  */
 public class AppTest 
     extends TestCase
 {
     /**
      * Create the test case
-     *
+     * Test 2
+     * Test 3
      * @param testName name of the test case
      */
     public AppTest( String testName )
