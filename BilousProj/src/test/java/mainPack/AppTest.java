@@ -7,6 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  * Test
+ * taras
  */
 public class AppTest 
     extends TestCase
