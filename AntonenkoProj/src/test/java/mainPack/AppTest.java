@@ -29,7 +29,7 @@ public class AppTest
     }
 
     /**
-     * Rigourous Test :-) Ant1
+     * Rigourous Test :-) Ant1Ant2
      */
     public void testApp()
     {
