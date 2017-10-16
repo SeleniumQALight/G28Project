@@ -30,7 +30,7 @@ public class AppTest
 
     /**
      * Rigourous Test :-)
-     * Antonenko Comment
+     * Antonenko Comment Comment
      */
     public void testApp()
     {
