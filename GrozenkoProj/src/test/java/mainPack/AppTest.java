@@ -11,7 +11,7 @@ public class AppTest
     extends TestCase
 {
     /**
-     * Create the test case 4545
+     * Create the test case 4545__
      *
      * @param testName name of the test case
      */
