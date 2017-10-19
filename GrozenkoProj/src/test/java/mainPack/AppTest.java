@@ -12,7 +12,7 @@ public class AppTest
 {
     /**
      * Create the test case 454500
-     *
+     * Create the test case push
      * @param testName name of the test case
      */
     public AppTest( String testName )
