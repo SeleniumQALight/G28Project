@@ -7,6 +7,7 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App. Test3344
  * HomeWork - create  new branch - muks30
+ * Create second commit and push - muks30
  */
 public class AppTest 
     extends TestCase
