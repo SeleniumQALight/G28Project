@@ -16,7 +16,7 @@ public class LogInWithOutPageObject {
         File fileFF = new File(".././drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // time-out for every command !
         driver.get("http://v3.test.itpmgroup.com/login");
         driver.findElement(By.name("_username")).sendKeys("Student");
         driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
@@ -25,4 +25,9 @@ public class LogInWithOutPageObject {
                 .isDisplayed());
         driver.quit();
     }
+/*
+    @Test
+    public void unvalidLogin() {
+    }
+  */
 }
