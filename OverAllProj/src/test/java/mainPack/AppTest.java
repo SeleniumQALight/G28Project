@@ -15,7 +15,6 @@ public class AppTest
     /**
      * Create the test case 4545
      *
-     *
      * @param testName name of the test case
      */
     public AppTest( String testName )
