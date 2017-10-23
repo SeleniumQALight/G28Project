@@ -11,8 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 public class LogInWithOutPageObject {
 
-
-
     @Test
     public void validLogin(){
         File fileFF = new File(".././drivers/chromedriver.exe");
