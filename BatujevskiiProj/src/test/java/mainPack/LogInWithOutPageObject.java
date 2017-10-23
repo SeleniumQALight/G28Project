@@ -1,9 +1,6 @@
 package mainPack;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LogInWithOutPageObject {
     WebDriver driver;
+    //  @BeforeClass @AfterClass
 
     @Before
     public void setUp(){
@@ -36,8 +34,10 @@ public class LogInWithOutPageObject {
         driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
         driver.findElement(By.tagName("button")).click();
 
-        Assert.assertTrue("Message if false !",driver.findElement(By.xpath(".//div[@class='pull-left image']//img[@class='img-circle']"))
-                .isDisplayed());
+        Assert.assertTrue("Message if false !",false);
+
+        // Assert.assertTrue("Message if false !",driver.findElement(By.xpath(".//div[@class='pull-left image']//img[@class='img-circle']"))
+        //        .isDisplayed());
         // проверка
 
 
