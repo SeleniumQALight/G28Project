@@ -5,8 +5,13 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple App.test-testdddqwewq dd
  */
+
+// New branch  date 18-10-2017
+// Line 2
+// Line 3
+
 public class AppTest 
     extends TestCase
 {

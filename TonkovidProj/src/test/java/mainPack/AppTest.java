@@ -5,14 +5,15 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple App.Test bla bla bla
  */
 public class AppTest 
     extends TestCase
 {
     /**
      * Create the test case
-     *
+     * next commit
+     * comin and push
      * @param testName name of the test case
      */
     public AppTest( String testName )
