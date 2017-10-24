@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 public class LogInWithOutPageObject {
@@ -45,15 +46,17 @@ public class LogInWithOutPageObject {
 
     @Test
     public void invalidLogin(){
-        File fileFF = new File(".././drivers/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         driver.get("http://v3.test.itpmgroup.com/login");
         driver.findElement(By.name("_username")).sendKeys("udent");
         driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
         driver.findElement(By.tagName("button")).click();
-        Assert.assertTrue(driver.findElement(By.tagName("button")).isDisplayed());
-        driver.quit();
+
+        try {
+            Assert.assertTrue(driver.findElement(By.tagName("button")).isDisplayed());
+            driver.quit();}
+        catch(NoSuchElementException e){
+            System.out.println("Element is not found");
+        }
     }
 }
