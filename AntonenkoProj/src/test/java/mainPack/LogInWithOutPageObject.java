@@ -42,8 +42,6 @@ public class LogInWithOutPageObject {
     }
 
 
-
-
     @Test
     public void invalidLogin(){
 
