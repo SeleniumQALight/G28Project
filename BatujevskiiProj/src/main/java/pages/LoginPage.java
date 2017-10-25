@@ -2,6 +2,7 @@ package pages;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
@@ -27,4 +28,13 @@ public class LoginPage {
 
      }
 
+    public void enterLogInItoInputLogin(String login) {
+         try {
+             webDriver.findElement(By.name("_username")).sendKeys(login);
+             logger.info(login + " was entered in tologin Input");
+         }catch (Exception e) {
+             logger.error("Can not work with input ");
+             Assert.fail("Can not work with input ");
+         }
+    }
 }
