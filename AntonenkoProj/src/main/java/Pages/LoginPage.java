@@ -37,4 +37,15 @@ public class LoginPage {
 
         }
     }
+
+    public void clickOnButtonLogIn() {
+        try {
+            webDriver.findElement(By.tagName("button")).click();
+            logger.info("Button was clicked");
+        }catch (Exception e){
+            logger.error("Can not click on Button");
+            Assert.fail("Can not click on Button");
+        }
+
+    }
 }
