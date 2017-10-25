@@ -33,8 +33,8 @@ public class MyTestLogin {
 
     }
 
-    public class MyTestLoginNoValid {
-        WebDriver driver = new ChromeDriver();
+//    public class MyTestLoginNoValid {
+//        WebDriver driver = new ChromeDriver();
 
         @Test
         public void MyTestLoginNoValid() {
@@ -68,7 +68,7 @@ public class MyTestLogin {
 
 
         }
-    }
+
 
 
 
