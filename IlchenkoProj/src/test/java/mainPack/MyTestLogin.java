@@ -50,8 +50,7 @@ public class MyTestLogin {
             driver.quit();
         }
 
-        public class MyTestPasswordNoValid {
-            WebDriver driver = new ChromeDriver();
+
 
             @Test
             public void MyTestPasswordNoValid() {
@@ -70,7 +69,7 @@ public class MyTestLogin {
 
         }
     }
-}
+
 
 
 
