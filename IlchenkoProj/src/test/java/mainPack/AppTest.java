@@ -9,8 +9,9 @@ import junit.framework.TestSuite;
  */
 public class AppTest 
     extends TestCase
-{
+{// this a second example, test number 2.1
     /**
+     * this is a third test, to chek the result of test number 2.2
      * Create the test case
      *
      * @param testName name of the test case
