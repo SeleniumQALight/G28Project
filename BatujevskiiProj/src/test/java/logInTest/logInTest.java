@@ -7,7 +7,8 @@ public class logInTest extends ParentTest {
     @Test
     public void validLogIn(){
         loginPage.openPageLogin();
-        loginPage.enterLogInItoInputLogin("student");
+        loginPage.enterLogInToInputLogin("student");
+        loginPage.clickButton();
     }
 
 
