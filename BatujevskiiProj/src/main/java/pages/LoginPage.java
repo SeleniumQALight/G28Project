@@ -28,13 +28,25 @@ public class LoginPage {
 
      }
 
-    public void enterLogInItoInputLogin(String login) {
+
+    public void enterLogInToInputLogin(String login) {
          try {
              webDriver.findElement(By.name("_username")).sendKeys(login);
-             logger.info(login + " was entered in tologin Input");
+             logger.info(login + " was entered in to login Input.");
          }catch (Exception e) {
-             logger.error("Can not work with input ");
-             Assert.fail("Can not work with input ");
+             logger.error("Can not work with input.");
+             Assert.fail("Can not work with input.");
          }
     }
+
+    public void clickButton(){
+         try {
+             webDriver.findElement(By.tagName("button")).click();
+             logger.info("Click ENTER");
+         } catch (Exception e) {
+             logger.error("Can not click to 'ENTER'");
+             Assert.fail("Can not click to 'ENTER'");
+         }
+    }
+
 }
