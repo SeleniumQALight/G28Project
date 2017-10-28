@@ -30,8 +30,32 @@ public class LoginPage {
             logger.info(login + " was entered in to login Input");
 
         } catch (Exception e) {
-            logger.error("Can not work with input");
-            Assert.fail("Can not work with input");
+            logger.error("Can not work with login input");
+            Assert.fail("Can not work with login input");
+
+        }
+    }
+
+    public void enterPasswordIntoInputPassword(String password) {
+        try {
+            webDriver.findElement(By.xpath(".//*[@name='_password']")).sendKeys(password);
+            logger.info(password + " was entered into password Input");
+
+        } catch (Exception e) {
+            logger.error("Can not work with password input");
+            Assert.fail("Can not work with password input");
+
+        }
+    }
+
+    public void clickOnButton(String button) {
+        try {
+            webDriver.findElement(By.tagName(button)).click();;
+            logger.info("We are clicked on " + button);
+
+        } catch (Exception e) {
+            logger.error("Can not work with " + button);
+            Assert.fail("Can not work with " + button);
 
         }
     }
