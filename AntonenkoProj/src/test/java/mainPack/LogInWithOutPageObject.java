@@ -42,8 +42,6 @@ public class LogInWithOutPageObject {
     }
 
 
-
-
     @Test
     public void invalidLogin(){
 
@@ -54,7 +52,7 @@ public class LogInWithOutPageObject {
 
         try {
             Assert.assertTrue(driver.findElement(By.tagName("button")).isDisplayed());
-            driver.quit();}
+            }
         catch(NoSuchElementException e){
             System.out.println("Element is not found");
         }
