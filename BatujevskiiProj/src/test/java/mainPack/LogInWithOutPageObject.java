@@ -34,18 +34,31 @@ public class LogInWithOutPageObject {
         driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
         driver.findElement(By.tagName("button")).click();
 
-        Assert.assertTrue("Message if false !",false);
+//        Assert.assertTrue("Message if false !",false);
 
-        // Assert.assertTrue("Message if false !",driver.findElement(By.xpath(".//div[@class='pull-left image']//img[@class='img-circle']"))
-        //        .isDisplayed());
+         Assert.assertTrue("Message if false !",driver.findElement(By.xpath(".//div[@class='pull-left image']//img[@class='img-circle']"))
+                .isDisplayed());
         // проверка
 
 
     }
 
-/*
+
     @Test
     public void unvalidLogin() {
+        driver.get("http://v3.qalight.com.ua/login");
+        driver.findElement(By.name("_username")).sendKeys("udent");
+        driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
+        driver.findElement(By.tagName("button")).click();
+
+
+
+
+        Assert.assertTrue("Message: Error ! User should not login !",driver.findElement(By.xpath(".//*[@class='login-box-msg']"))
+                .isDisplayed());
+        Assert.assertTrue("Message: Error ! User should not login !",driver.findElement(By.xpath(".//*[@value='student']']"))
+                .isDisplayed());
+
+
     }
-  */
 }
