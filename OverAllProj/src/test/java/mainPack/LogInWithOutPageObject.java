@@ -29,7 +29,8 @@ public class LogInWithOutPageObject {
         driver.findElement(By.name("_username")).sendKeys("Student");
         driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
         driver.findElement(By.tagName("button")).click();
-        Assert.assertTrue("message",false);
+        Assert.assertTrue("Message if false !",driver.findElement(By.xpath(".//div[@class='pull-left image']//img[@class='img-circle']"))
+                .isDisplayed());
     }
 
     @Test
