@@ -1,4 +1,4 @@
-package pages; // для написания команд для удобного чтения обычн людьми
+package pages;// Описание страницы LoginPage
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
