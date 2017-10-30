@@ -1,5 +1,6 @@
 package parentTest;
 
+import Pages.HomePage;
 import Pages.LoginPage;
 import logInTest.LoginTest;
 import org.junit.After;
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class ParentTest {
     WebDriver driver;
     public LoginPage loginPage;
+    public HomePage homePage;
 
     @Before
     public void setUp() {
@@ -21,10 +23,11 @@ public class ParentTest {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
     }
 
     @After
-    public void tearDown () {
+    public void tearDown() {
         driver.quit();
     }
 }
