@@ -8,7 +8,8 @@ public class LoginTest extends ParentTest {
     public void validLogin(){
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
-
+        loginPage.enterPasswordIntoInputLogin("909090");
+        loginPage.clickLoginButton();
     }
 
 }

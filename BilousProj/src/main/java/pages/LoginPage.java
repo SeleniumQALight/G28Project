@@ -29,11 +29,31 @@ public class LoginPage {
 
     public void enterLogInIntoInputLogin(String login) {
         try{
-            webDriver.findElement(By.name("_usename")).sendKeys(login);
-            logger.info(login + "is entered into inpput login ");
+            webDriver.findElement(By.name("_username")).sendKeys(login);
+            logger.info(login + "is entered into input login ");
         }catch (Exception e) {
             logger.error("cannot enter login to input login");
             Assert.fail("cannot enter login to input login");
+        }
+    }
+
+    public void enterPasswordIntoInputLogin(String password) {
+        try{
+            webDriver.findElement(By.xpath(".//input[@name='_password']")).sendKeys(password);
+            logger.info(password + "is entered into input password ");
+        }catch (Exception e) {
+            logger.error("cannot enter password to input password");
+            Assert.fail("cannot enter password to input password");
+        }
+    }
+
+    public void clickLoginButton() {
+        try{
+            webDriver.findElement(By.tagName("button")).click();
+            logger.info("Login button is clicked");
+        }catch (Exception e) {
+            logger.error("cannot click Login button");
+            Assert.fail("cannot click Login button");
         }
     }
 }
