@@ -38,7 +38,25 @@ public class LoginPage {
         }
     }
 
+    public void enterPassword (String password){
+        try {
+            webDriver.findElement(By.xpath(".//*[@name='_password']")).sendKeys(password);
+            logger.info(password + " was enterd into password");
+
+        } catch (Exception e){
+            logger.error("Cant work with password " + password);
+            Assert.fail("Cant work with password " + password);
+        }
+    }
+
     public void clickOnButtonLogIn() {
+        try {
+            webDriver.findElement(By.xpath(".//*[@type = 'submit']")).click();
+            logger.info("button Submit was clicked");
+        }catch (Exception e){
+            logger.error("button Submit wasn't clicked ");
+            Assert.fail("button Submit wasn't clicked ");
+        }
 
     }
 }
