@@ -1,9 +1,13 @@
 package pages;
 
+import libs.ActionsWithOurWebElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by Marina on 10/25/2017.
@@ -11,10 +15,22 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     WebDriver webDriver;
     Logger logger;
+    ActionsWithOurWebElements actionsWithOurWebElements;
+
+    @FindBy(name = "_username" )
+    WebElement inputLogin;
+
+    @FindBy(name = "_password")
+    WebElement inputPassword;
+
+    @FindBy(tagName = "button")
+    WebElement buttonLogIn;
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
+        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
+        PageFactory.initElements(webDriver,this);
     }
 
     public void openPage() {
@@ -28,35 +44,31 @@ public class LoginPage {
     }
 
     public void enterLogInInputLogin(String login) {
-        try {
-            webDriver.findElement(By.name("_username")).sendKeys(login);
-            logger.info(login + "was entered in to login");
-
-        } catch (Exception e) {
-            logger.error("Can not work with input");
-            Assert.fail("Can not work with input");
-        }
+//        try {
+//            inputLogin.clear();
+//           inputLogin.sendKeys(login);
+//            logger.info(login + "was entered in to login");
+//
+//        } catch (Exception e) {
+//            logger.error("Can not work with input");
+//            Assert.fail("Can not work with input");
+//        }
+        actionsWithOurWebElements.enterTextInToInput(inputLogin, login);
     }
 
-    public void enterPassword (String password){
-        try {
-            webDriver.findElement(By.xpath(".//*[@name='_password']")).sendKeys(password);
-            logger.info(password + " was enterd into password");
-
-        } catch (Exception e){
-            logger.error("Cant work with password " + password);
-            Assert.fail("Cant work with password " + password);
-        }
+    public void enterPassInToInputPass (String pass){
+        actionsWithOurWebElements.enterTextInToInput(inputPassword,pass);
     }
 
     public void clickOnButtonLogIn() {
-        try {
-            webDriver.findElement(By.xpath(".//*[@type = 'submit']")).click();
-            logger.info("button Submit was clicked");
-        }catch (Exception e){
-            logger.error("button Submit wasn't clicked ");
-            Assert.fail("button Submit wasn't clicked ");
-        }
+//        try {
+//            webDriver.findElement(By.xpath(".//*[@type = 'submit']")).click();
+//            logger.info("button Submit was clicked");
+//        }catch (Exception e){
+//            logger.error("button Submit wasn't clicked ");
+//            Assert.fail("button Submit wasn't clicked ");
+//        }
+        actionsWithOurWebElements.clickOnWebElement(buttonLogIn);
 
     }
 }
