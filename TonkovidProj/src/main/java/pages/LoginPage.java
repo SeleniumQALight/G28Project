@@ -14,14 +14,11 @@ public class LoginPage {
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        logger= Logger.getLogger(getClass());
+        logger = Logger.getLogger(getClass());
 
     }
 
-    public void openPageLogin(){
-
-
-        {
+    public void openPageLogin() {
             try {
                 webDriver.get("thttp://v3.test.itpmgroup.com/login");
                 logger.info("page login was opened");
@@ -33,14 +30,14 @@ public class LoginPage {
             }
         }
 
-    }
-
     public void enterLoginInToImputLogin(String login) {
-        try{webDriver.findElement(By.name("_username")).sendKeys(login);
-            logger.info("Text "+login+" enter the login field");
+        try {
+            webDriver.findElement(By.name("_username")).sendKeys(login);
+            logger.info("Text " + login + " enter the login field");
 
-    }catch(Exception e){
+        } catch (Exception e) {
             logger.error("Cant work with this field");
             Assert.fail("Cant work with this field");
         }
+    }
 }
