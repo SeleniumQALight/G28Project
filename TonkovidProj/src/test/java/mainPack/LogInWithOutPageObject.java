@@ -34,8 +34,6 @@ public class LogInWithOutPageObject {
         driver.findElement(By.name("_username")).sendKeys("Student");
         driver.findElement(By.xpath(".//*[@name='_password']")).sendKeys("909090");
         driver.findElement(By.tagName("button")).click();
-        Assert.assertTrue("Element is not found",driver.findElement(By.ByXPath));
-
 
     }
 
