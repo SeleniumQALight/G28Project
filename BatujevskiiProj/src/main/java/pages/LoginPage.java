@@ -28,8 +28,8 @@ public class LoginPage {
 
      }
 
-
     public void enterLogInToInputLogin(String login) {
+
          try {
              webDriver.findElement(By.name("_username")).sendKeys(login);
              logger.info(login + " was entered in to login Input.");
@@ -48,5 +48,6 @@ public class LoginPage {
              Assert.fail("Can not click to 'ENTER'");
          }
     }
+
 
 }
