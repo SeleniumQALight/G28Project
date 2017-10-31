@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ParentTest {
     WebDriver driver;
-   public LoginPage loginPage;
+    public LoginPage loginPage;
     public HomePage homePage;
 
     @Before

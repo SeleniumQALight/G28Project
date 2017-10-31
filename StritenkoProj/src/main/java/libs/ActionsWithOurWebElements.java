@@ -14,7 +14,7 @@ public class ActionsWithOurWebElements {
     Logger logger;
 
     public ActionsWithOurWebElements(WebDriver driver) {
-        this.webDriver = webDriver;
+        this.webDriver = driver;
         logger = Logger.getLogger(getClass());
     }
 

@@ -10,11 +10,11 @@ import parentTest.ParentTest;
 public class LogInTest extends ParentTest {
 
     @Test
-    public void validLogIn (){
+    public void validLogIn() {
         loginPage.openPage();
         loginPage.enterLogInInputLogin("Student");
-       loginPage.enterPassInToInputPass("909090");
+        loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonLogIn();
-        Assert.assertTrue("Avatar is not present",homePage.isAvatarPresent());
+        Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent());
     }
 }

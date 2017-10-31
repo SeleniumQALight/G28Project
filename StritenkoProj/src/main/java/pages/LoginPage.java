@@ -12,10 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by Marina on 10/25/2017.
  */
-public class LoginPage {
-    WebDriver webDriver;
-    Logger logger;
-    ActionsWithOurWebElements actionsWithOurWebElements;
+public class LoginPage extends ParentPage{
 
     @FindBy(name = "_username" )
     WebElement inputLogin;
@@ -27,15 +24,12 @@ public class LoginPage {
     WebElement buttonLogIn;
 
     public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        logger = Logger.getLogger(getClass());
-        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
-        PageFactory.initElements(webDriver,this);
+        super(webDriver);
     }
 
     public void openPage() {
         try {
-            webDriver.get("http://v3.test.itpmgroup.com/login");
+            super.openPage("http://v3.test.itpmgroup.com/login");
             logger.info("Page login was opened");
         } catch (Exception e) {
             logger.error("Can not open url");

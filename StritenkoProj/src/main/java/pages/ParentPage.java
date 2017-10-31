@@ -19,4 +19,9 @@ public class ParentPage {
         actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
         PageFactory.initElements(webDriver, this);
     }
+
+    public void openPage(String url) {
+        webDriver.get(url);
+    }
+
 }
