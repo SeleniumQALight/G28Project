@@ -73,4 +73,9 @@ public class LoginPage {
 
         actionsWithOurWebElements.clickOnWebElement(buttonLogIn);
     }
+
+
+    public boolean isButtonLoginPresent() {
+        return actionsWithOurWebElements.isElementPresent(buttonLogIn);
+    }
 }
