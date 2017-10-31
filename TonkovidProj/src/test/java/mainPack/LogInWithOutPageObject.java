@@ -16,7 +16,7 @@ public class LogInWithOutPageObject {
 
     @Before
     public void setUp(){
-        File fileFF = new File(".././drivers/chromedriver.exe");
+        File fileFF = new File(".././drivers/chromedriver");
         System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
