@@ -11,6 +11,6 @@ public class LoginTest extends ParentTest{
     public void validLogIn(){
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
-
+        loginPage.clickOnButtonLogIn();
     }
 }

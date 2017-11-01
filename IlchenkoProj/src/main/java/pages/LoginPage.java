@@ -37,4 +37,17 @@ public class LoginPage {
             logger.error("Can not work with input");
             Assert.fail("Can not work with input");
         }
-    }}
+
+    }
+
+    public void clickOnButtonLogIn() {
+        try {
+            webDriver.findElement(By.xpath(".//button[@type=\"submit\"]")).click();
+            logger.info("The button was pushed");
+        } catch (Exception e) {
+            logger.error("Can`t find the button");
+            Assert.fail("Can`t find the button");
+        }
+
+    }
+}
