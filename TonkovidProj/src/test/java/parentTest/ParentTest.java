@@ -42,6 +42,9 @@ public class ParentTest {
 
     @After
     public void tearDown() {
+        if(!isTestPass){
+            utils.screenShot(pathToScreen,driver);
+        }
         driver.quit();
     }
     protected void checkAcceptanceCriteria(String massage,boolean actual,boolean expected){
@@ -50,6 +53,6 @@ public class ParentTest {
 
         }
         Assert.assertThat(massage,actual,is(expected));
-
+        isTestPass=true;
     }
 }
