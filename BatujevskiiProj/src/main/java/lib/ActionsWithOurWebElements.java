@@ -60,5 +60,19 @@ public class ActionsWithOurWebElements {
 
         }
     }
+// написать ..... выбор по value
+
+//    public void selectItemInDropDownByValue(WebElement elementDD, String valueForSelect) {
+//        try {
+//            Select optionsFromDD = new Select(elementDD);   // находит и выбирает ДД а в переменной все строки нашего ДД
+//            optionsFromDD.selectByVisibleText(valueForSelectForSelect); // медленно работающий метод
+//            logger.info(valueForSelect + " was selected in DD");
+//        } catch (Exception e) {
+//
+//            logger.error("Can not work with element");
+//            Assert.fail("Can not work with element");
+//        }
+//    }
+
 
 }
