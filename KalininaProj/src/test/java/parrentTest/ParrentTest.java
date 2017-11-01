@@ -1,18 +1,22 @@
-package parentTest;
+package parrentTest;
 
-import Pages.HomePage;
-import Pages.LoginPage;
-import logInTest.LoginTest;
+import loginTest.LoginTest;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+import pages.LoginPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class ParentTest {
+/**
+ * Created by Администратор on 25.10.2017.
+ */
+public class ParrentTest {
     WebDriver driver;
+
     public LoginPage loginPage;
     public HomePage homePage;
 
@@ -25,7 +29,6 @@ public class ParentTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
     }
-
     @After
     public void tearDown() {
         driver.quit();
