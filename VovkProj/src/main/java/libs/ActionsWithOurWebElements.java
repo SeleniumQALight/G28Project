@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
@@ -43,4 +44,18 @@ public class ActionsWithOurWebElements {
             return false;
         }
     }
+
+    public void selectItemInDropdownByVisibleText(WebElement elementDD, String textForSelect) {
+        try {
+            Select optionsFromDD = new Select(elementDD);
+            optionsFromDD.selectByVisibleText(textForSelect);
+            logger.info(textForSelect + " was selected in DD");
+
+        } catch (Exception e) {
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+        }
+    }
+
+    //public void setStateToCheckBox()
 }
