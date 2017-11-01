@@ -74,7 +74,7 @@ public class ActionsWithOurWebElements {
 
 
     public void setStateToCheckBox(WebElement element,String neededState){
-            //
+
 
         if(){
 
