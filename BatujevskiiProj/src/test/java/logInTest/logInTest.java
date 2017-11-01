@@ -9,9 +9,15 @@ public class logInTest extends ParentTest {
     public void validLogIn() {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("student");
-        loginPage.enterPassInToInputPass("909090");
+        loginPage.enterPassInToInputPass("9090");
         loginPage.clickOnButtonLogin();
-        Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent());
+
+        checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(), true);
+
+
+        // Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent());
+        // сообщение, что проверяется и какой должен быть результат....
+
     }
 
 
