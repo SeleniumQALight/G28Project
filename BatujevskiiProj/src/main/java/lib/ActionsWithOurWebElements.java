@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class ActionsWithOurWebElements {
@@ -47,5 +48,17 @@ public class ActionsWithOurWebElements {
 
     }
 
+    public void selectItemInDropDownByVisiblText(WebElement elementDD, String textForSelect) {
+        try {
+            Select optionsFromDD = new Select(elementDD);   // находит и выбирает ДД а в переменной все строки нашего ДД
+            optionsFromDD.selectByVisibleText(textForSelect); // медленно работающий метод
+            logger.info(textForSelect + " was selected in DD");
+        } catch (Exception e) {
+
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+
+        }
+    }
 
 }
