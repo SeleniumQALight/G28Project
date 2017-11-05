@@ -13,4 +13,12 @@ public class LoginTest extends ParentTest {
         loginPage.clickOnButtonLogIn();
         Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent());
     }
+    @Test
+    public void invalidLogin(){
+        loginPage.openPageLogin();
+        loginPage.enterLoginIntoInputLogin("udent");
+        loginPage.enterPassInToInputPass("909090");
+        loginPage.clickOnButtonLogIn();
+        Assert.assertTrue("Button is not displayed", loginPage.isButtonLoginPresent());
+    }
 }
