@@ -46,7 +46,7 @@ public class ParentTest {
         if (!isTestPass) {
             utils.screenShot(pathToScreenShot, driver);
         }
-        //driver.quit();
+        driver.quit();
     }
 
     /**
