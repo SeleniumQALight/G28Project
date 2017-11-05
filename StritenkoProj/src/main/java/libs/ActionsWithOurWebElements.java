@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by Marina on 10/30/2017.
@@ -43,9 +44,52 @@ public class ActionsWithOurWebElements {
 
     public boolean isElementPresent(WebElement element) {
         try {
-            return element.isDisplayed() &&element.isEnabled();
-        }catch (Exception e){
+            return element.isDisplayed() && element.isEnabled();
+        } catch (Exception e) {
             return false;
+        }
+    }
+
+    public void selectItemInDropDownByVisibleText(WebElement elementDD, String textForSelect) {
+        try {
+            Select optionsFromDD = new Select(elementDD);
+            optionsFromDD.selectByVisibleText(textForSelect);
+            logger.info(textForSelect + "was selected in DD");
+
+        } catch (Exception e) {
+            logger.info("Can not work with element");
+            Assert.fail("Can not work with element");
+
+        }
+
+    }
+
+    public void selectCheckBox(WebElement element) {
+        try {
+            if (!element.isSelected()) {
+                element.click();
+                logger.info("CheckBox was just selected");
+            } else {
+                logger.info("CheckBox already selected previously");
+            }
+
+        } catch (Exception e) {
+            logger.error("Error occurred while checking the checkbox.");
+
+        }
+    }
+
+    public void deselectCheckBox(WebElement element) {
+        try {
+            if (element.isSelected()){
+                element.click();
+                logger.info("CheckBox was just deselected");
+            }else {
+                logger.info("CheckBox already deselected previously");
+            }
+
+        }catch (Exception e){
+            logger.error("Error occurred while unchecking the checkbox.");
         }
     }
 }

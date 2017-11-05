@@ -1,13 +1,9 @@
 package pages;
 
-import libs.ActionsWithOurWebElements;
-import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by Marina on 10/25/2017.
@@ -47,7 +43,8 @@ public class LoginPage extends ParentPage{
 //            logger.error("Can not work with input");
 //            Assert.fail("Can not work with input");
 //        }
-        actionsWithOurWebElements.enterTextInToInput(inputLogin, login);
+        actionsWithOurWebElements.enterTextInToInput(
+                inputLogin, login);
     }
 
     public void enterPassInToInputPass (String pass){
