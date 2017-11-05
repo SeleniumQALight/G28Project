@@ -2,6 +2,8 @@ package parentTest;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.SdelkyPage;
+import Pages.StoronySdelokPage;
 import libs.Utils;
 import logInTest.LoginTest;
 import org.junit.After;
@@ -21,6 +23,8 @@ public class ParentTest {
     WebDriver driver;
     public LoginPage loginPage;
     public HomePage homePage;
+    public StoronySdelokPage storonySdelokPage;
+    public SdelkyPage sdelkyPage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -38,6 +42,8 @@ public class ParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        storonySdelokPage = new StoronySdelokPage(driver);
+        sdelkyPage = new SdelkyPage(driver);
     }
 
     @After
