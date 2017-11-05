@@ -14,6 +14,8 @@ public class LoginPage {
     Logger logger;
     ActionsWithOurWebElements actionsWithOurWebElements;
 
+    @FindBy(xpath = ".//*[@class='login-box']")
+    WebElement logInBox;
     @FindBy(name = "_username")
     WebElement inputLogin;
 
@@ -28,7 +30,7 @@ public class LoginPage {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
         actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
-        PageFactory.initElements(webDriver,this);
+        PageFactory.initElements(webDriver, this);
     }
 
 
@@ -41,6 +43,10 @@ public class LoginPage {
             Assert.fail("Can not open URL");
 
         }
+    }
+
+    public boolean isLogInBoxPresent() {
+        return actionsWithOurWebElements.isElementPresent(logInBox);
     }
 
     public void enterLogInIntoInputLogin(String login) {
