@@ -3,9 +3,13 @@ package dictionaryTest;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class ApparatNewDictionaryAdding extends ParentTest {
+/**
+ * Created by o.bilous on 03-Nov-17.
+ */
+public class AddDictionaryDealType_CheckBoxMethod extends ParentTest {
+
     @Test
-    public void addNewDictApparat() {
+    public void addNewDictDealType() {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
         loginPage.enterPasswordIntoInputPass("909090");
@@ -13,13 +17,11 @@ public class ApparatNewDictionaryAdding extends ParentTest {
         checkAcceptanceCriteria("Avater is not present",
                 homePage.isAvatarPresent(), true);
         homePage.clickOnDictionaryExpandList();
-        homePage.selectOnDictionaryMenuItemApparat();
+        homePage.selectOnDictionaryMenuItemDealType();
         homePage.clickOnAddBtn();
-        homePage.enterInIntoInputApparatNumber("51120172");
-        homePage.enterInIntoInputApparatComment("BilousTestComment");
-        homePage.clickCreateButton();
-        checkAcceptanceCriteria("Added Dictionary is not present",
-                homePage.isAddedDictionaryPresent(), true);
-    }
+        homePage.clickOnCheckBox();
 
+
+
+    }
 }

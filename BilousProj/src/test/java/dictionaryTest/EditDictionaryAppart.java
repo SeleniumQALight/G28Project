@@ -4,7 +4,7 @@ import org.junit.Test;
 import parentTest.ParentTest;
 
 
-public class AppartDictionaryEditing extends ParentTest {
+public class EditDictionaryAppart extends ParentTest {
     @Test
     public void editDictApparat() {
         loginPage.openPageLogin();

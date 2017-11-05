@@ -3,10 +3,9 @@ package dictionaryTest;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-
-public class AppartDictionaryRemoving extends ParentTest {
+public class AddDictionaryAppart extends ParentTest {
     @Test
-    public void removeDictApparat() {
+    public void addNewDictApparat() {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
         loginPage.enterPasswordIntoInputPass("909090");
@@ -16,19 +15,11 @@ public class AppartDictionaryRemoving extends ParentTest {
         homePage.clickOnDictionaryExpandList();
         homePage.selectOnDictionaryMenuItemApparat();
         homePage.clickOnAddBtn();
-        homePage.enterInIntoInputApparatNumber("51120173");
+        homePage.enterInIntoInputApparatNumber("51120172");
         homePage.enterInIntoInputApparatComment("BilousTestComment");
         homePage.clickCreateButton();
-
-        /**Remove Dictionary*/
-        homePage.clickOnApparatDictionary();
-        homePage.clickOnRemoveButton();
-        checkAcceptanceCriteria("Removed Dictionary is not present",
-                homePage.isRemoveddDictionaryNotPresent(), true);
-
-
-
-
-
+        checkAcceptanceCriteria("Added Dictionary is not present",
+                homePage.isAddedDictionaryPresent(), true);
     }
+
 }
