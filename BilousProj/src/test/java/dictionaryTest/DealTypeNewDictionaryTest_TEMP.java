@@ -18,6 +18,9 @@ public class DealTypeNewDictionaryTest_TEMP extends ParentTest {
                 homePage.isAvatarPresent(), true);
         homePage.clickOnDictionaryExpandList();
         homePage.selectOnDictionaryMenuItemDealType();
+        homePage.clickOnAddBtn();
+        homePage.clickOnCheckBox();
+
 
 
     }

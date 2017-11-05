@@ -46,7 +46,7 @@ public class ParentTest {
         if (!isTestPass) {
             utils.screenShot(pathToScreenShot, driver);
         }
-        driver.quit();
+        //driver.quit();
     }
 
     /**
@@ -60,4 +60,5 @@ public class ParentTest {
         Assert.assertThat(message, actual, is(expected));
         isTestPass = true;
     }
+
 }

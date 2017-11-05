@@ -25,7 +25,7 @@ public class HomePage extends ParrentPage {
     WebElement createButton;
     //@FindBy(xpath = ".//table[@id='device_list']//tr//td[text()='" + dictionaryName + "']//..//td[text()='" + comment + "']")
     //WebElement addedApparatDictionary;
-    @FindBy(xpath = ".//table[@id='device_list']//tr//td[text()='51120171']//..//td[text()='BilousTestComment']")
+    @FindBy(xpath = ".//table[@id='device_list']//tr//td[text()='51120172']//..//td[text()='BilousTestComment']")
     WebElement addedApparatDictionary;
     @FindBy(xpath = ".//table[@id='device_list']//tr//td[text()='51120173']//..//td[text()='BilousTestComment']")
     WebElement apparatDictionary;
@@ -43,7 +43,7 @@ public class HomePage extends ParrentPage {
     WebElement profileBox;
     @FindBy(xpath = ".//a[@href='/logout']")
     WebElement logOutButton;
-    @FindBy(xpath = ".//*[@id='prov_cus']")
+    @FindBy(xpath = ".//*[@id='prov_cus_proCustIsFl']")
     WebElement checkBox;
 
 
@@ -128,9 +128,9 @@ public class HomePage extends ParrentPage {
         actionsWithOurWebElements.clickOnWebElement(dictionaryMenuItemDealType);
     }
 
-//    public void clickOnCheckBox() {
-//        actionsWithOurWebElements.setStateToCheckBox(checkBox);
-//
-//    }
+   public void clickOnCheckBox() {
+        actionsWithOurWebElements.setStateToCheckBox(checkBox);
+
+    }
 
 }

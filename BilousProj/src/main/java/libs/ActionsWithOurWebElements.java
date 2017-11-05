@@ -1,5 +1,4 @@
 package libs;
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
+    Utils utils = new Utils();
 
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -31,6 +31,7 @@ public class ActionsWithOurWebElements {
 
     public void clickOnWebElement(WebElement element) {
         try {
+            utils.threadWait();
             element.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -73,15 +74,6 @@ public class ActionsWithOurWebElements {
     }
 
 
-
-   /* public void setStateToCheckBox(WebElement element,String neededState){
-
-
-        if(){
-
-        }
-    }*/
-
     public boolean elementIsNotPresent(WebElement element) {
         try {
 
@@ -91,5 +83,11 @@ public class ActionsWithOurWebElements {
         }
     }
 
+    public void setStateToCheckBox(WebElement element) {
+        if (!element.isSelected()) {
+            element.click();
+        }
+
+    }
 
 }
