@@ -5,7 +5,7 @@ import parentTest.ParentTest;
 
 public class AddNewSdelka extends ParentTest{
     @Test
-    public void addNewSdelka () {
+    public void addNewSdelkaWithIncorrectData () {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
         loginPage.enterPassIntoInputPass("909090");

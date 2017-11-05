@@ -79,9 +79,6 @@ public class HomePage extends ParentPage {
     }
 
     public boolean isNewProfileNameIsPresent(String profileName) {
-        //return Assert.assertTrue(webDriver.findElement(By.xpath(".//p[contains(text(),"+ profileName+")]")).isDisplayed());
-        String s = webDriver.findElement(By.xpath(".//p[contains(text(),"+ profileName+")]")).getText();
-        return (s.contains(profileName));
-
+        return webDriver.findElement(By.xpath(".//span[contains(text(), '"+ profileName+"')]")).getText().equalsIgnoreCase(profileName);
     }
 }
