@@ -49,6 +49,7 @@ public class ActionsWithOurWebElements {
         }
     }
 
+
     public void selectItemInDropDownByVisibleText(WebElement elementdd, String textForSelect) {
         try {
             Select optionsFromDD = new Select(elementdd);
@@ -73,11 +74,20 @@ public class ActionsWithOurWebElements {
 
 
 
-    public void setStateToCheckBox(WebElement element,String neededState){
+   /* public void setStateToCheckBox(WebElement element,String neededState){
 
 
         if(){
 
+        }
+    }*/
+
+    public boolean elementIsNotPresent(WebElement element) {
+        try {
+
+            return !element.isDisplayed() && element.isEnabled();
+        } catch (Exception e) {
+            return true;
         }
     }
 

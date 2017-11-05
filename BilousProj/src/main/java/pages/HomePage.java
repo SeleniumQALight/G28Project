@@ -128,9 +128,9 @@ public class HomePage extends ParrentPage {
         actionsWithOurWebElements.clickOnWebElement(dictionaryMenuItemDealType);
     }
 
-    public void clickOnCheckBox() {
-        actionsWithOurWebElements.setStateToCheckBox(checkBox);
-
-    }
+//    public void clickOnCheckBox() {
+//        actionsWithOurWebElements.setStateToCheckBox(checkBox);
+//
+//    }
 
 }
