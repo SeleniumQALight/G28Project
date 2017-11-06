@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.ServicePage;
+import pages.SparePage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +26,10 @@ public class ParentTest {
     //переменная
     public LoginPage loginPage;
     public HomePage homePage;
+    public ServicePage servicePage;
+    public SparePage sparePage;
+
+
     private Utils utils = new Utils();
     private boolean isTestPaste = false; // показывает прошел тест или нет
     private String pathToScreenShot;  // путь к скриншоту
@@ -59,6 +65,9 @@ public class ParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        servicePage = new ServicePage(driver);
+        sparePage = new SparePage(driver);
+
 
     }
 
@@ -74,7 +83,7 @@ public class ParentTest {
         }
         //quit - для закрытия браузера
         // close -для закрытия вкладки
-        driver.quit();
+  //      driver.quit();
     }
 
 
@@ -94,4 +103,24 @@ public class ParentTest {
         isTestPaste = true; // для предачи переменной isTestPaste в @After
         // так как по умолчанию isTestPaste = false
     }
+
+
+    //переносим Assert в этот метод - ожидаемый результат теста
+    //для проверки вводимого текста
+    protected void checkAcceptanceCriteries(String message, String actual
+            , String expected) {
+
+        if (!actual.equals(expected) ) {
+            // driver -браузер с которого хотим снять
+            //путь для сохранения скриншота
+            utils.screenShot(pathToScreenShot, driver);
+        }
+        // сравнивает actualresult and expected и выдает сообщение если есть несовпадение
+        // для импорта a "is" используем coreMatch
+        Assert.assertThat(message, actual, is(expected));
+
+        isTestPaste = true; // для предачи переменной isTestPaste в @After
+        // так как по умолчанию isTestPaste = false
+    }
+
 }
