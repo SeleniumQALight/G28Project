@@ -8,18 +8,18 @@ public class RemoveDictionaryAppart extends ParentTest {
     @Test
     public void removeDictApparat() {
         loginPage.loginUser("Student","909090");
-        homePage.clickOnMenuDictionary();
-        homePage.selectOnDictionaryMenuItemApparat();
-        homePage.clickOnAddBtn();
-        homePage.enterInIntoInputApparatNumber("51120173");
-        homePage.enterInIntoInputApparatComment("BilousTestComment");
-        homePage.clickCreateButton();
+        apparatPage.clickOnMenuDictionary();
+        apparatPage.selectOnDictionaryMenuItemApparat();
+        apparatPage.clickOnAddBtn();
+        apparatPage.enterInIntoInputApparatNumber("51120173");
+        apparatPage.enterInIntoInputApparatComment("BilousTestComment");
+        apparatPage.clickCreateButton();
 
         /**Remove Dictionary*/
-        homePage.clickOnApparatDictionary();
-        homePage.clickOnRemoveButton();
+        apparatPage.clickOnApparatDictionary();
+        apparatPage.clickOnRemoveButton();
         checkAcceptanceCriteria("Removed Dictionary is not present",
-                homePage.isRemoveddDictionaryNotPresent(), true);
+                apparatPage.isRemoveddDictionaryNotPresent(), true);
 
 
 

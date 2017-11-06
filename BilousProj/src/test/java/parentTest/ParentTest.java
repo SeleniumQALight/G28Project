@@ -5,10 +5,7 @@ import org.junit.*;
 import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.ApparatPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.SparePage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +18,7 @@ public class ParentTest {
     public HomePage homePage;
     public SparePage sparePage;
     public ApparatPage apparatPage;
+    public DealTypePage dealTypePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -43,6 +41,8 @@ public class ParentTest {
         homePage = new HomePage(driver);
         sparePage = new SparePage(driver);
         apparatPage = new ApparatPage(driver);
+        dealTypePage = new DealTypePage(driver);
+
 
 
     }

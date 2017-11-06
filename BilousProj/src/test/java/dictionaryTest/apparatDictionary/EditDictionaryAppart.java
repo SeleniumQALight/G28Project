@@ -8,20 +8,20 @@ public class EditDictionaryAppart extends ParentTest {
     @Test
     public void editDictApparat() {
         loginPage.loginUser("Student","909090");
-        homePage.clickOnMenuDictionary();
-        homePage.selectOnDictionaryMenuItemApparat();
-        homePage.clickOnAddBtn();
-        homePage.enterInIntoInputApparatNumber("51120173");
-        homePage.enterInIntoInputApparatComment("BilousTestComment");
-        homePage.clickCreateButton();
-        homePage.clickOnApparatDictionary();
+        apparatPage.clickOnMenuDictionary();
+        apparatPage.selectOnDictionaryMenuItemApparat();
+        apparatPage.clickOnAddBtn();
+        apparatPage.enterInIntoInputApparatNumber("51120173");
+        apparatPage.enterInIntoInputApparatComment("BilousTestComment");
+        apparatPage.clickCreateButton();
+        apparatPage.clickOnApparatDictionary();
 
         /**Editing text in dictionary inputs*/
-        homePage.enterInIntoInputApparatNumber("511201731");
-        homePage.enterInIntoInputApparatComment("BilousTestCommentEdited");
-        homePage.clickOnSaveButton();
+        apparatPage.enterInIntoInputApparatNumber("511201731");
+        apparatPage.enterInIntoInputApparatComment("BilousTestCommentEdited");
+        apparatPage.clickOnSaveButton();
         checkAcceptanceCriteria("Edited Dictionary is not present",
-                homePage.isEditeddDictionaryPresent(), true);
+                apparatPage.isEditeddDictionaryPresent(), true);
 
 
     }
