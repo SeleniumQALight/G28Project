@@ -11,7 +11,7 @@ public class logInTest extends ParentTest {
     @Test
     public void validLogIn(){
         loginPage.openPageLogin();
-        loginPage.enterLogInIntoInputLogin("Student");
+        loginPage.enterLogInIntoInputLogin("student");
         loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonLogin();
         checkAcceptanceCriteria("Avatar is not present",
