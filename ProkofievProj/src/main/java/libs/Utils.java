@@ -10,7 +10,7 @@ import java.io.IOException;
 //import java.util.logging.Logger;
 
 public class Utils {
-        private org.apache.log4j.Logger log;
+        private Logger log;
 
         public Utils() {
                 log = Logger.getLogger(getClass());
