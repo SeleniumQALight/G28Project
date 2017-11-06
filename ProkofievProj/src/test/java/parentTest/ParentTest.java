@@ -2,9 +2,9 @@ package parentTest;
 
 import Pages.HomePage;
 import Pages.LoginPage;
-import junit.framework.Assert;
 import libs.Utils;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
@@ -51,7 +51,7 @@ public class ParentTest {
         if (actual != expected){
             utils.screenShot(pathToScreenShot,driver);
         }
-        org.junit.Assert.assertThat(message, actual, is(expected));
+        Assert.assertThat(message, actual, is(expected));
         isTestPass = true;
     }
 }
