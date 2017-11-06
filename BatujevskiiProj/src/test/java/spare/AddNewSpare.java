@@ -16,6 +16,7 @@ public class AddNewSpare extends ParentTest {
         homePage.clickOnSubMenuSpare();
         sparePage.checkZagolovok("Запчасти Список");
 
+
     }
 
 }
