@@ -76,4 +76,10 @@ public class LoginPage {
         actionsWithOurWebElements.clickOnWebElement(buttonLogIn);
     }
 
+    public void loginUser(String login, String pass) {
+        openPageLogin();
+        enterLogInIntoInputLogin(login);
+        enterPassInToInputPass(pass);
+        clickOnButtonLogin();
+    }
 }
