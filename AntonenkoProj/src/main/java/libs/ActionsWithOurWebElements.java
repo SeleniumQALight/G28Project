@@ -86,8 +86,31 @@ public class ActionsWithOurWebElements {
 
         } else if (neededState.equals("unchecked")) {
             if (isChecked)
-              clickOnWebElement(element);
+                clickOnWebElement(element);
         }
+    }
+
+    /**
+     *
+     * @param element
+     * @param neededState !! only Checked OR Unchecked
+     */
+    public void setStateToCheckboxClass(WebElement element, String neededState) {
+//        Assert.assertEquals("Not expected status","Checked",neededState);
+
+        if (element.isSelected() && "Checked".equals(neededState)){
+            logger.info("Element is checked");
+        }else if (element.isSelected() && "Unchecked".equals(neededState)){
+            clickOnWebElement(element);
+        }else if (!element.isSelected() && "Checked".equals(neededState)){
+            clickOnWebElement(element);
+        }else if (!element.isSelected() && "Unchecked".equals(neededState)){
+            logger.info("Element is unchecked");
+        }
+    }
+
+
+
 
 /*
         switch (neededState) {
@@ -104,7 +127,7 @@ public class ActionsWithOurWebElements {
             }
 */
     }
-}
+
 
 
 

@@ -1,9 +1,6 @@
 package parentTest;
 
-import Pages.EditSdelkiPage;
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.SdelkiListPage;
+import Pages.*;
 import libs.Utils;
 import org.junit.After;
 import org.junit.Assert;
@@ -24,6 +21,7 @@ public class ParentTest {
     public HomePage homePage;
     public SdelkiListPage sdelkiListPage;
     public EditSdelkiPage editSdelkiPage;
+    public SparePage sparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -45,6 +43,7 @@ public class ParentTest {
         homePage = new HomePage(driver);
         sdelkiListPage = new SdelkiListPage(driver);
         editSdelkiPage = new EditSdelkiPage(driver);
+        sparePage = new SparePage(driver);
 
 
     }
@@ -65,5 +64,16 @@ public class ParentTest {
         Assert.assertThat(message, actual, is (expected));
         isTestPass = true;
     }
+
+    protected void checkAcceptanceCriteria(String message, String actual, String expected){
+        if (!actual.equals(expected)) {
+            utils.screenShot(pathToScreenShot, driver);
+        }
+        Assert.assertThat(message, actual, is (expected));
+        isTestPass = true;
+    }
+
+
+
 
 }
