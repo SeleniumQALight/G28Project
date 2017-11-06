@@ -1,4 +1,5 @@
 package libs;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -83,11 +84,31 @@ public class ActionsWithOurWebElements {
         }
     }
 
-    public void setStateToCheckBox(WebElement element) {
+    /*public void setStateToCheckBox(WebElement element) {
         if (!element.isSelected()) {
             element.click();
         }
 
-    }
+    }*/
 
+    /**
+     * @param element
+     * @param neededState !! Only Checked and Unchecked
+     */
+    public void setStateToCheckBox(WebElement element, String neededState) {
+        Assert.assertEquals("Not expected status", "Checked", neededState);
+
+        if (element.isSelected() && "Checked".equals(neededState)) {
+            logger.info("Element is Checked");
+        } else if (element.isSelected() && "UnChecked".equals(neededState)) {
+            clickOnWebElement(element);
+        } else if (!element.isSelected() && "Checked".equals(neededState)) {
+            clickOnWebElement(element);
+        } else if (!element.isSelected() && "Unchecked".equals(neededState)) {
+            logger.info("Element is Unchecked");
+        }
+
+    }
 }
+
+

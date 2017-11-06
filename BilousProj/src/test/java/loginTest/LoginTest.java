@@ -12,6 +12,8 @@ public class LoginTest extends ParentTest {
         loginPage.clickOnLoginButton();
         checkAcceptanceCriteria("Avater is not present",
                 homePage.isAvatarPresent(),true);
+        checkAcceptanceCriteria("Titles is not exepted",
+                homePage.getTitle(),"Учет запчастей");
 
     }
 

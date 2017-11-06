@@ -9,12 +9,12 @@ public class HomePage extends ParrentPage {
 
     @FindBy(xpath = ".//div[@class='pull-left image']//img[@class='img-circle']")
     WebElement avatar;
-    @FindBy(xpath = ".//li[@id='dictionary']")
-    WebElement dictionaryExpandList;
+    @FindBy(id = "dictionary")
+    WebElement menuDictionary;
     @FindBy(xpath = ".//li[@id='dictionary']//*[@href='/dictionary/providers']")
-    WebElement dictionaryMenuItemDealType;
-    @FindBy(xpath = ".//*[@id='apparat']")
-    WebElement dictionaryMenuItemApparat;
+    WebElement subMenuDealType;
+    @FindBy(id = "apparat")
+    WebElement subMenuApparat;
     @FindBy(xpath = ".//a[@class='btn btn-info btn-sm' and @data-original-title='Add']")
     WebElement addButton;
     @FindBy(xpath = ".//input[@id='apparat_apparatNumber']")
@@ -43,8 +43,10 @@ public class HomePage extends ParrentPage {
     WebElement profileBox;
     @FindBy(xpath = ".//a[@href='/logout']")
     WebElement logOutButton;
-    @FindBy(xpath = ".//*[@id='prov_cus_proCustIsFl']")
+    @FindBy(id = "prov_cus_proCustIsFl")
     WebElement checkBox;
+    @FindBy(id = "spares")
+    WebElement submenuSpare;
 
 
     public HomePage(WebDriver webDriver) {
@@ -55,15 +57,15 @@ public class HomePage extends ParrentPage {
         return actionsWithOurWebElements.isElementPresent(avatar);
     }
 
-    public void clickOnDictionaryExpandList() {
-        actionsWithOurWebElements.clickOnWebElement(dictionaryExpandList);
+    public void clickOnMenuDictionary() {
+        actionsWithOurWebElements.clickOnWebElement(menuDictionary);
+
 
     }
 
 
-
     public void selectOnDictionaryMenuItemApparat() {
-        actionsWithOurWebElements.clickOnWebElement(dictionaryMenuItemApparat);
+        actionsWithOurWebElements.clickOnWebElement(subMenuApparat);
 
     }
 
@@ -125,12 +127,18 @@ public class HomePage extends ParrentPage {
     }
 
     public void selectOnDictionaryMenuItemDealType() {
-        actionsWithOurWebElements.clickOnWebElement(dictionaryMenuItemDealType);
+        actionsWithOurWebElements.clickOnWebElement(subMenuDealType);
     }
 
-   public void clickOnCheckBox() {
-        actionsWithOurWebElements.setStateToCheckBox(checkBox);
-
+    public void clickonSubmenuSpare() {
+        actionsWithOurWebElements.clickOnWebElement(submenuSpare);
     }
+
+
+//   public void clickOnCheckBox() {
+//        actionsWithOurWebElements.setStateToCheckBox(checkBox);
+//
+//    }
+
 
 }

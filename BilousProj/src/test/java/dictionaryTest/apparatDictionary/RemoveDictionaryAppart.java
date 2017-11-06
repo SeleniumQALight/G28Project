@@ -1,4 +1,4 @@
-package dictionaryTest;
+package dictionaryTest.apparatDictionary;
 
 import org.junit.Test;
 import parentTest.ParentTest;
@@ -7,13 +7,8 @@ import parentTest.ParentTest;
 public class RemoveDictionaryAppart extends ParentTest {
     @Test
     public void removeDictApparat() {
-        loginPage.openPageLogin();
-        loginPage.enterLogInIntoInputLogin("Student");
-        loginPage.enterPasswordIntoInputPass("909090");
-        loginPage.clickOnLoginButton();
-        checkAcceptanceCriteria("Avater is not present",
-                homePage.isAvatarPresent(), true);
-        homePage.clickOnDictionaryExpandList();
+        loginPage.loginUser("Student","909090");
+        homePage.clickOnMenuDictionary();
         homePage.selectOnDictionaryMenuItemApparat();
         homePage.clickOnAddBtn();
         homePage.enterInIntoInputApparatNumber("51120173");
