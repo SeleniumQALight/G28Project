@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SparePage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -20,6 +21,7 @@ public class ParentTest {
     WebDriver driver;
     public LoginPage loginPage;
     public HomePage homePage;
+    public SparePage sparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -39,6 +41,7 @@ public class ParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        sparePage = new SparePage(driver);
 
     }
 
@@ -59,5 +62,13 @@ public class ParentTest {
         isTestPass = true;
     }
 
+    protected void checkAcceptanceCriteria(String message, String actual
+            , String expected){
+        if (!actual.equals(expected)){
+            utils.screenShot(pathToScreenShot,driver);
+        }
+        Assert.assertThat(message,actual,is(expected));
+        isTestPass = true;
+    }
 
 }
