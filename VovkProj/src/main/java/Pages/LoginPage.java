@@ -71,4 +71,8 @@ public class LoginPage {
 //
 //        }
     }
+
+    public boolean isButtonLoginPresent() {
+        return actionsWithOurWebElements.isElementPresent(buttonLogin);
+    }
 }
