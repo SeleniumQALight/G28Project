@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ActionsWithOurWebElements {
 
@@ -46,6 +47,62 @@ public class ActionsWithOurWebElements {
             return false;
 
         }
+    }
+
+    public void selectItemInDropDownByVisibleText(WebElement elementDD, String textForSelect) {
+        try {
+            Select optionsFromDD = new Select(elementDD);
+            optionsFromDD.selectByVisibleText(textForSelect);
+            logger.info(textForSelect + " was selected in DD");
+
+        } catch (Exception e) {
+            logger.error("Cannot work with element");
+            Assert.fail("Cannot work with element");
+        }
+
+    }
+
+    public void selectItemInDropDownByValue(WebElement elementDD, String valueInDD) {
+        try {
+            Select optionsFromDD = new Select(elementDD);
+            optionsFromDD.selectByValue(valueInDD);
+            logger.info(valueInDD + " was select in DD");
+
+        } catch (Exception e) {
+            logger.error("Cannot work with element");
+            Assert.fail("Cannot work with element");
+        }
+
+    }
+
+    //needed state = checked or unchecked
+    public void setStateToCheckbox(WebElement element, String neededState) {
+        boolean isChecked;
+        isChecked = (element.isSelected());
+
+        if (neededState.equals("checked")) {
+            if (!isChecked)
+                clickOnWebElement(element);
+
+        } else if (neededState.equals("unchecked")) {
+            if (isChecked)
+              clickOnWebElement(element);
+        }
+
+/*
+        switch (neededState) {
+            case "checked":
+                if (isChecked)
+                    break;
+                else clickOnWebElement(element);
+                break;
+            case "unchecked":
+                if (!isChecked)
+                    break;
+                else clickOnWebElement(element);
+                break;
+            }
+*/
     }
 }
 
