@@ -75,4 +75,11 @@ public class LoginPage {
     public boolean isButtonLoginPresent() {
         return actionsWithOurWebElements.isElementPresent(buttonLogin);
     }
+
+    public void loginUser(String login, String pass) {
+        openPageLogin();
+        enterLogInIntoInputLogin(login);
+        enterPassIntoInputPass(pass);
+        clickOnButtonLogin();
+    }
 }
