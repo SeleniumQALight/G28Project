@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class ActionsWithOurWebElements {
@@ -55,4 +56,43 @@ public class ActionsWithOurWebElements {
 
         }
     }
+
+    // method dropdown по видимому тексту
+    public void selectItemDropDownVisibleText(WebElement elementDD, String textForSelect) {
+
+        try {
+            // класс "Select" который может работать с dropDown в Silenium
+            //"Select" - умеет открывать dropDown
+            Select optionsForm = new Select(elementDD);
+            optionsForm.selectByVisibleText(textForSelect);
+            logger.info(textForSelect + "was selected in DD");
+        } catch (Exception e) {
+            logger.error("cant work with dropDown");
+            // красим в красный цвет в списке тестов
+            Assert.fail("cant work with dropDown");
+        }
+
+    }
+
+
+    // HomeWork
+    // method dropdown по Value
+    public void selectItemDropDownVisibleText(WebElement elementDD, String valueForSelect) {
+
+        try {
+
+        } catch (Exception e) {
+            logger.error("cant work with dropDown");
+            // красим в красный цвет в списке тестов
+            Assert.fail("cant work with dropDown");
+        }
+
+    }
+
+    //HomeWork
+    // checkBox 
+    public void setStateToCheckBox(WebElement element, String neededState) {
+
+    }
+
 }
