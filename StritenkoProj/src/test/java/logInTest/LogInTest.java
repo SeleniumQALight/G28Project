@@ -16,5 +16,6 @@ public class LogInTest extends ParentTest {
         loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonLogIn();
        checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(),true);
+        checkAcceptanceCriteria("Title is not excepted", homePage.getTitle(), "???? ?????????");
     }
 }

@@ -62,4 +62,11 @@ public class LoginPage extends ParentPage{
         actionsWithOurWebElements.clickOnWebElement(buttonLogIn);
 
     }
+
+    public void loginUser(String login, String pass) {
+        openPage();
+        enterLogInInputLogin(login);
+        enterPassInToInputPass(pass);
+        clickOnButtonLogIn();
+    }
 }
