@@ -34,7 +34,7 @@ public class ParentTest {
     public void setUp() {
         File fileFF = new File(".././drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
-        pathToScreenShot = "..\\OverAllProj\\target\\screenshot\\" + this.getClass().getPackage().getName()
+        pathToScreenShot = "..\\BatujevskiiProj\\target\\screenshot\\" + this.getClass().getPackage().getName()
                 + "\\" + this.getClass().getSimpleName() + "\\" +
                 this.testName.getMethodName() + ".jpg";
         driver = new ChromeDriver();

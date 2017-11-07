@@ -32,9 +32,11 @@ public class ActionsWithOurWebElements {
         try{
             element.click();
             logger.info("Element was clicked");
+            logger.debug("Element was clicked:" + element);
         }catch (Exception e){
-            logger.error("Can not work with element");
-            Assert.fail("Can not work with element");
+            logger.error("Can not work with element.");
+            logger.debug("Can not work with element:" + element);
+            Assert.fail("Can not work with element.");
         }
     }
 
