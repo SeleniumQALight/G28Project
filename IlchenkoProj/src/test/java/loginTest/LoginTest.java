@@ -14,7 +14,8 @@ public class LoginTest extends ParentTest{
         loginPage.enterLogInIntoInputLogin("Student");
         loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonLogIn();
-        Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent());
+        checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(),true);
+        checkAcceptanceCriteria("Title is not excepted", homePage.getTitle(), "Учет запчпстей");
 
 
     }

@@ -23,7 +23,7 @@ public class LoginPage {
     @FindBy(tagName = "button")
     WebElement buttonLogin;
 
-    public LoginPage(WebDriver WebDriver) {
+    public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
         actionsWithOursWebElements = new ActionsWithOursWebElements(webDriver);
@@ -60,6 +60,14 @@ public class LoginPage {
 
     public void clickOnButtonLogIn(){
         actionsWithOursWebElements.clickOnWebElement( buttonLogin);
+    }
+
+    public void loginUser(String login, String pass) {
+        openPageLogin();
+        enterLogInIntoInputLogin(login);
+        enterPassInToInputPass(pass);
+        clickOnButtonLogIn();
+
     }
 }
 

@@ -17,8 +17,14 @@ public class AddNewSpare extends ParentTest {
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpare();
         sparePage.checkZagolovok("Запчасти Список");
-
-
+        sparePage.clickOnPlusButton();
+        editSparePage.checkZagolovok("Словарь");
+        editSparePage.enterTextInToInputSpareName(TEST_SPARE);
+        editSparePage.selectTextInDropDownTypeOfSpare("Датчики");
+        editSparePage.clickOnAddButton();
+        sparePage.checkZagolovok("Запчасти Список");
+        sparePage.checkZagolovok("Запчасти список");
+        checkAcceptanceCriteria(TEST_SPARE + "Can not find spare in list ", sparePage.isSpareInList(TEST_SPARE), true);
 
     }
 }
