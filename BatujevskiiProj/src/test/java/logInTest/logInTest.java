@@ -1,11 +1,7 @@
 package logInTest;
 
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
-
-import java.util.Calendar;
-import java.util.logging.SimpleFormatter;
 
 public class logInTest extends ParentTest {
     @Test
@@ -22,5 +18,25 @@ public class logInTest extends ParentTest {
         //        SimpleFormatter
     }
 
+    @Test
+    public void loginItBox() throws InterruptedException {
+        loginPage.openPageItBox();
+        loginPage.clickAuthButton();
+  //      loginPage.enterEmailInItBoxLogin("a1@qa.team");
+  //      loginPage.enterPassItBox("123");
+        loginPage.clickEnterToLogin();
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void findProduct() throws InterruptedException {
+      loginPage.openPageItBox();
+      loginPage.typeProductNameToSearchField("HR1234W");
+        Thread.sleep(1000);
+        checkAcceptanceCriteria("Title is not exepted", homePage.getTitle(), "Батарея к ИБП 12В 9Ач CSB (HR1234W) - ITbox - интернет-магазин электроники и компьютерной техники");
+      homePage.checkZagolovok("Батарея к ИБП 12В 9Ач CSB (HR1234W)");
+
+        // checkAcceptanceCriteria("Title is not exepted", homePage.isPrsentProductImage(), true);
+    }
 
 }
