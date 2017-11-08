@@ -8,6 +8,7 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.SparePage;
@@ -22,6 +23,7 @@ public class ParentTest {
     public LoginPage loginPage;
     public HomePage homePage;
     public SparePage sparePage;
+    public EditSparePage editSparePage;
 
     private Utils utils = new Utils();
     private boolean isTestPass = false;
@@ -34,7 +36,7 @@ public class ParentTest {
     public void setUp() {
         File fileFF = new File(".././drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
-        pathToScreenShot = "..\\OverAllProj\\target\\screenshot\\" + this.getClass().getPackage().getName()
+        pathToScreenShot = "..\\BatujevskiiProj\\target\\screenshot\\" + this.getClass().getPackage().getName()
                 + "\\" + this.getClass().getSimpleName() + "\\" +
                 this.testName.getMethodName() + ".jpg";
         driver = new ChromeDriver();
@@ -43,6 +45,9 @@ public class ParentTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         sparePage = new SparePage(driver);
+        editSparePage = new EditSparePage(driver);
+
+
     }
 
     @After
