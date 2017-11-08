@@ -94,12 +94,6 @@ public class ActionsWithOurWebElements {
     }
 
 
-
-
-
-
-
-
-
-
+    public void enterTextInToFindField(String productName) {
+    }
 }
