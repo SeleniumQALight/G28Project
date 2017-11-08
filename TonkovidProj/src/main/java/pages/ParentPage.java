@@ -21,7 +21,7 @@ public class ParentPage {
     public ParentPage (WebDriver webDriver){
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-      //actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver); //   Mised webDriver( red)
+        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
         PageFactory.initElements(webDriver,this);
     }
     public String getTitle() {
