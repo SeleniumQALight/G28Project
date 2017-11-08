@@ -4,6 +4,9 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import static org.hamcrest.CoreMatchers.is;
 
 
 public class ActionsWithOurWebElements {
@@ -44,7 +47,7 @@ public class ActionsWithOurWebElements {
         }
     }
 
-    // est li element na stranice
+    // есть ли элемент на странице
     public boolean isElementPresent(WebElement element) {
         try {
             // & - обычный "И",&& -если первый false , то второй не проверяется
@@ -55,4 +58,71 @@ public class ActionsWithOurWebElements {
 
         }
     }
+
+    // method dropdown по видимому тексту
+    public void selectItemDropDownVisibleText(WebElement elementDD, String textForSelect) {
+
+        try {
+            // класс "Select" который может работать с dropDown (DD) в Silenium
+            //"Select" - умеет открывать dropDown
+            Select optionsForm = new Select(elementDD);
+            optionsForm.selectByVisibleText(textForSelect);
+            logger.info(textForSelect + "was selected in DD");
+        } catch (Exception e) {
+            logger.error("cant work with dropDown");
+            // красим в красный цвет в списке тестов
+            Assert.fail("cant work with dropDown");
+        }
+
+    }
+
+
+    // HomeWork
+    // method dropdown по Value
+    public void selectItemDropDownByValue(WebElement elementDD, String valueInDD) {
+
+        try {
+            Select optionsForm = new Select(elementDD);
+            optionsForm.selectByValue(valueInDD);
+            logger.info(valueInDD + "was selected in DD");
+
+        } catch (Exception e) {
+            logger.error("cant work with dropDown");
+            // красим в красный цвет в списке тестов
+            Assert.fail("cant work with dropDown");
+        }
+
+    }
+
+
+    //HomeWork
+    // checkBox
+
+    /**
+     *
+     * @param element
+     * @param neededState !! only checked or unchecked
+     */
+    public void setStateToCheckBox(WebElement element, String neededState) {
+
+        // если пришла неправильная инфо в метод - валим тест - Assert
+     //   Assert.assertEquals("Not Expected status","Checked",neededState);
+
+        if (element.isSelected() && "Checked".equals(neededState)) {
+            logger.info("Element is checked");
+        } else if (element.isSelected() && "Unchecked".equals(neededState)) {
+            clickOnWebElement(element);
+
+        }else if (!element.isSelected() && "Checked".equals(neededState)){
+            clickOnWebElement(element);
+        }else if (!element.isSelected()&& "Unchecked".equals(neededState)){
+            logger.info("Element is Unchecked");
+        }
+    }
+
+
+
+
+
+
 }
