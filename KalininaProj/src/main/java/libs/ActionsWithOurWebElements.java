@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 /**
  * Created by Администратор on 30.10.2017.
@@ -45,6 +46,44 @@ public class ActionsWithOurWebElements {
         }
         catch (Exception E) {
         return false;
+        }
+    }
+    public void selectItemInDropDownByVisibleText (WebElement elementDD, String textForSelect) {
+        try {
+            Select optionsFromDD = new Select(elementDD);
+            optionsFromDD.selectByVisibleText(textForSelect);
+            logger.info(textForSelect + "was selected in DD");
+        }
+        catch (Exception E) {
+            logger.error("Cant work with element");
+            Assert.fail("Cant work with element");
+        }
+    }
+
+    public void selectItemInDropDownByValue (WebElement elementDD, String value) {
+        try {
+            Select optionsFromDD = new Select(elementDD);
+            optionsFromDD.selectByValue(value);
+            logger.info(value + "was selected in DD");
+        }
+        catch (Exception E) {
+            logger.error("Cant work with value");
+            Assert.fail("Cant work with value");
+        }
+    }
+
+    public void setStateToCheckBox (WebElement element, String neededState) {
+        try {
+            element.isSelected();
+           // assertEquals(name.isSelected(),true);
+
+//            if (element.isSelected(), true);
+//            else  element.click();
+//            logger.info(value + "was selected in DD");
+        }
+        catch (Exception E) {
+            logger.error("Cant work with value");
+            Assert.fail("Cant work with value");
         }
     }
 }

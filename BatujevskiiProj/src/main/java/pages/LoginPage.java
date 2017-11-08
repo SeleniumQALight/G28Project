@@ -1,6 +1,7 @@
 package pages;
 
-import libs.ActionsWithOurWebElements;
+import lib.ActionsWithOurWebElements;
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -73,5 +74,12 @@ public class LoginPage {
 
     public void clickOnButtonLogin(){
         actionsWithOurWebElements.clickOnWebElement(buttonLogIn);
+    }
+
+    public void loginUser(String login, String pass) {
+        openPageLogin();
+        enterLogInIntoInputLogin(login);
+        enterPassInToInputPass(pass);
+        clickOnButtonLogin();
     }
 }
