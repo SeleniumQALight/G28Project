@@ -19,11 +19,45 @@ public class LoginPage {
     @FindBy(name = "_username")
     WebElement inputLogin;
 
+
+
     @FindBy(name = "_password")
     WebElement inputPassWord;
 
     @FindBy(tagName = "button")
     WebElement buttonLogIn;
+
+    /**
+     *  ItBox start
+     */
+
+    @FindBy(name = "email")
+    WebElement inputEmailItBox;
+
+    @FindBy(name = "password")
+    WebElement inputPassWordItBox;
+
+
+    @FindBy(xpath= ".//*[@href='#auth']")
+    WebElement authLink;
+
+//    @FindBy(xpath = ".//*[@value='Отправить']")
+//    WebElement enterLoginButtonItBox;
+//    @FindBy(xpath = ".//*[@href='/registration/']")
+
+    @FindBy(xpath = ".//*[@type='submit']")
+    WebElement enterLoginButtonItBox;
+
+    @FindBy(name = "q")
+    WebElement findField;
+
+    @FindBy(xpath = ".//*[@title='Искать']")
+    WebElement findButton;
+
+
+    @FindBy(xpath = ".//*[@href='https://last.itbox.ua/prod_img/0/B0002310_big.jpg']")
+    public WebElement imageLink;
+
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -33,7 +67,7 @@ public class LoginPage {
     }
 
 
-    public void openPageLogin() {
+        public void openPageLogin() {
         try {
             webDriver.get("http://v3.test.itpmgroup.com/login");
             logger.info("Page login was opened");
@@ -81,5 +115,42 @@ public class LoginPage {
         enterLogInIntoInputLogin(login);
         enterPassInToInputPass(pass);
         clickOnButtonLogin();
+    }
+
+
+    //////////////// IT BOX
+
+    public void clickAuthButton(){
+        actionsWithOurWebElements.clickOnWebElement(authLink);
+    }
+
+    public void clickEnterToLogin(){
+        actionsWithOurWebElements.clickOnWebElement(enterLoginButtonItBox);
+    }
+
+    public void enterEmailInItBoxLogin(String login) {
+
+        actionsWithOurWebElements.enterTextInToInput(inputEmailItBox, login);
+    }
+
+    public void enterPassItBox(String pass) {
+        actionsWithOurWebElements.enterTextInToInput(inputPassWordItBox, pass);
+    }
+
+    public void openPageItBox() {
+        try {
+            webDriver.get("https://www.itbox.ua/");
+            logger.info("Page login was opened");
+        } catch (Exception e) {
+            logger.error("Can not open url");
+            Assert.fail("Can not open url");
+        }
+
+    }
+
+    public void typeProductNameToSearchField(String productName) {
+
+        actionsWithOurWebElements.enterTextInToInput(findField, productName);
+        actionsWithOurWebElements.clickOnWebElement(findButton);
     }
 }
