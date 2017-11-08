@@ -2,6 +2,7 @@ package parentTest;
 
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.SparePage;
 import libs.Utils;
 import org.junit.After;
 import org.junit.Assert;
@@ -20,6 +21,7 @@ public class ParentTest {
     WebDriver driver;
     public LoginPage loginPage;
     public HomePage homePage;
+    public SparePage sparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -37,6 +39,7 @@ public class ParentTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        sparePage = new SparePage(driver);
     }
 
     @After
@@ -49,6 +52,14 @@ public class ParentTest {
 
     protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
         if (actual != expected){
+            utils.screenShot(pathToScreenShot,driver);
+        }
+        Assert.assertThat(message, actual, is(expected));
+        isTestPass = true;
+    }
+
+    protected void checkAcceptanceCriteria(String message, String actual, String expected){
+        if (!actual.equals(expected)){
             utils.screenShot(pathToScreenShot,driver);
         }
         Assert.assertThat(message, actual, is(expected));

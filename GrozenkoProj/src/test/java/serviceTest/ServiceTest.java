@@ -1,34 +1,33 @@
-package loginTest; // для написания команд для удобного чтения обычн людьми
+package serviceTest;
 
-import org.junit.Assert;
 import org.junit.Test;
-import pages.HomePage;
 import parentTest.ParentTest;
 
-public class LoginTest extends ParentTest {
+public class ServiceTest extends ParentTest {
+    @Test // Тест кейс - тестирование dropDown на строанице service
 
-    @Test // Тест кейс
+    // Логинимся используя метод validLogin
     public void validLogIn() {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
         loginPage.enterPassInToInputPass("909090");
 
+
         loginPage.clickOnButtonLogin();
+
+
         // Assert.assertTrue("Avatar is not present", homePage.isAvatarPresent()); // измнение цвета текста
         // если автар не найден будет найден
         // будет выведено сообщение "Avatar is not present"
         checkAcceptanceCriteries("Avatar is not present",
                 homePage.isAvatarPresent(), true); // если поменять на false - получим скриншот
 
-        checkAcceptanceCriteries("Title is not excepted",
-                homePage.getTitle(),"Учет запчастей");
+        servicePage.openPageService();
 
-    //Calendar - спрашиваем дату и время
-    // SimpleFormat -  выбираем формат отображения времени и даты
     }
 
-
-
-
+//    public void validServicePage() {
+//        servicePage.openPageService();
+//    }
 
 }

@@ -65,9 +65,22 @@ public class ActionsWithOurWebElements {
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
+    }
 
-//    public void setStateToCheckBox (WebElement element, String neededState){
-//
-//    }
+        /**
+         * @param element
+         * @param neededState !! only Checked OR Unchecked
+         */
+    public void setStateToCheckBox (WebElement element, String neededState){
+        //    Assert.assert("Not Expected status", "Checked",neededState);
+            if (element.isSelected() && "Checked".equals(neededState)){
+                logger.info("Element is checked");
+            } else if (element.isSelected() && "Unchecked".equals(neededState)){
+                clickOnWebElement(element);
+            } else if (!element.isSelected() && "Checked".equals(neededState)){
+                clickOnWebElement(element);
+            } else if (!element.isSelected() && "Unchecked".equals(neededState)){
+                logger.info("Element is Unchecked");
+            }
     }
 }
