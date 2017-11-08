@@ -12,7 +12,7 @@ public class AddNewSpare extends ParentTest {
         homePage.checkTitle("Учет запчастей");
         homePage.checkZagolovok("Главная");
         homePage.clickOnMenuDictionary();
+        homePage.clickOnSubMenuSpare();
         sparePage.checkZagolovok("Запчасти Список");
-
     }
 }
