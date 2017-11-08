@@ -63,6 +63,7 @@ public class LoginPage {
         }
     }
 
+    // ввод данных в поле Login
     public void enterLogInIntoInputLogin(String login) {
 //        try {
 //            // очистить поле logIn на странице
@@ -91,5 +92,18 @@ public class LoginPage {
         actionsWithOurWebElements.clickOnWebElement(buttonLogin);
     }
 
+
+
+    public void loginUser(String login, String pass) {
+        openPageLogin();
+        enterLogInIntoInputLogin(login);
+        enterPassInToInputPass(pass);
+        clickOnButtonLogin();
+
+    }
+
     // проверка на page
+
+
+
 }

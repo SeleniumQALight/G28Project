@@ -10,6 +10,7 @@ public class HomePage extends ParrentPage {
     @FindBy(xpath = ".//div[@class='pull-left image']//img[@class='img-circle']")
     WebElement avatar;
 
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -17,5 +18,6 @@ public class HomePage extends ParrentPage {
     public boolean isAvatarPresent() {
         return actionsWithOurWebElements.isElementPresent(avatar);
     }
+
 
 }
