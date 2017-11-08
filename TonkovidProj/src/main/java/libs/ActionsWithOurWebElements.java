@@ -2,6 +2,7 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -92,6 +93,16 @@ public class ActionsWithOurWebElements {
             clickOnWebElement(element);
         } else if (!element.isSelected() && "Unchecked".equals(neededState)){
             logger.info("Element is Unchecked");
+        }
+    }
+    public boolean isElementIsPresent(String locator){
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return webElement.isDisplayed() && webElement.isEnabled();
+
+        }catch (Exception e){
+            return false;
+
         }
     }
     }
