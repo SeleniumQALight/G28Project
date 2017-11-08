@@ -33,6 +33,14 @@ public class ParentPage {
         Assert.assertEquals("Title not expected", getTitle(), title);
     }
 
+    // for ItBox - start
+
+    public boolean isPrsentProductImage(WebElement imageLink) {
+        return actionsWithOurWebElements.isElementPresent(imageLink);
+    }
+
+    // for ItBox - end
+
     public void checkZagolovok(String zagolovokText) {
         Assert.assertEquals("Zagolovok is not matched", zagolovok.getText(), zagolovokText);
     }
