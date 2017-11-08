@@ -10,10 +10,7 @@ import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.ServicePage;
-import pages.SparePage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +25,7 @@ public class ParentTest {
     public HomePage homePage;
     public ServicePage servicePage;
     public SparePage sparePage;
+    public EditSparePage editSparePage;
 
 
     private Utils utils = new Utils();
@@ -67,6 +65,7 @@ public class ParentTest {
         homePage = new HomePage(driver);
         servicePage = new ServicePage(driver);
         sparePage = new SparePage(driver);
+        editSparePage = new EditSparePage(driver);
 
 
     }
@@ -83,7 +82,7 @@ public class ParentTest {
         }
         //quit - для закрытия браузера
         // close -для закрытия вкладки
-  //      driver.quit();
+        driver.quit();
     }
 
 
