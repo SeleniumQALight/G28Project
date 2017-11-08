@@ -6,7 +6,7 @@ import parentTest.ParentTest;
 
 
 public class LogoutTest extends ParentTest {
-    @Test
+   @Test
     public void logOut() {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");

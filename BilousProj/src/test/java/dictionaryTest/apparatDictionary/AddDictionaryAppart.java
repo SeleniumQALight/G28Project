@@ -7,8 +7,8 @@ public class AddDictionaryAppart extends ParentTest {
     @Test
     public void addNewDictApparat() {
         loginPage.loginUser("Student","909090");
-        apparatPage.clickOnMenuDictionary();
-        apparatPage.selectOnDictionaryMenuItemApparat();
+        homePage.clickOnMenuDictionary();
+        homePage.selectOnDictionaryMenuItemApparat();
 
         apparatPage.clickOnAddBtn();
         apparatPage.enterInIntoInputApparatNumber("51120172");
