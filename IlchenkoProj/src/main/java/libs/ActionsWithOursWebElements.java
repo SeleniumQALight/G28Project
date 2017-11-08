@@ -21,7 +21,7 @@ public class ActionsWithOursWebElements {
     WebDriverWait webDriverWait20;
 //    WebDriverWait webDriverWait
 
-    public ActionsWithOursWebElements(WebDriver WebDriver) {
+    public ActionsWithOursWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
         webDriverWait20 = new WebDriverWait(webDriver,20);
