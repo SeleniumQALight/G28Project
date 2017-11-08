@@ -1,17 +1,34 @@
 package Pages;
 
+import libs.ActionsWithOurWebElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     WebDriver webDriver;
     Logger logger;
+    ActionsWithOurWebElements actionsWithOurWebElements;
+
+    @FindBy(name = "_username")
+    WebElement inputLogin;
+
+    @FindBy(name = "_password")
+    WebElement inputPassword;
+
+    @FindBy(tagName = "button")
+    WebElement buttonLogin;
+
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
+        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
+        PageFactory.initElements(webDriver, this);
     }
 
     public void openPageLogin() {
@@ -25,38 +42,37 @@ public class LoginPage {
     }
 
     public void enterLogInIntoInputLogin(String login) {
-        try {
-            webDriver.findElement(By.name("_username")).sendKeys(login);
-            logger.info(login + " was entered in to login Input");
-
-        } catch (Exception e) {
-            logger.error("Can not work with login input");
-            Assert.fail("Can not work with login input");
-
-        }
+//        try {
+//            inputLogin.clear();
+//            inputLogin.sendKeys(login);
+//            logger.info(login + " was entered in to login Input");
+//
+//        } catch (Exception e) {
+//            logger.error("Can not work with login input");
+//            Assert.fail("Can not work with login input");
+//
+//        }
+        actionsWithOurWebElements.enterTextIntoInput(inputLogin, login);
     }
 
-    public void enterPasswordIntoInputPassword(String password) {
-        try {
-            webDriver.findElement(By.xpath(".//*[@name='_password']")).sendKeys(password);
-            logger.info(password + " was entered into password Input");
-
-        } catch (Exception e) {
-            logger.error("Can not work with password input");
-            Assert.fail("Can not work with password input");
-
-        }
+    public void enterPassIntoInputPass(String password) {
+        actionsWithOurWebElements.enterTextIntoInput(inputPassword, password);
     }
 
-    public void clickOnButton(String button) {
-        try {
-            webDriver.findElement(By.tagName(button)).click();;
-            logger.info("We are clicked on " + button);
+    public void clickOnButtonLogin() {
+        actionsWithOurWebElements.clickOnWebElement(buttonLogin);
+//        try {
+//            webDriver.findElement(By.tagName(button)).click();;
+//            logger.info("We are clicked on " + button);
+//
+//        } catch (Exception e) {
+//            logger.error("Can not work with " + button);
+//            Assert.fail("Can not work with " + button);
+//
+//        }
+    }
 
-        } catch (Exception e) {
-            logger.error("Can not work with " + button);
-            Assert.fail("Can not work with " + button);
-
-        }
+    public boolean isButtonLoginPresent() {
+        return actionsWithOurWebElements.isElementPresent(buttonLogin);
     }
 }

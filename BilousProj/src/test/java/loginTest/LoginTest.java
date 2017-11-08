@@ -5,11 +5,16 @@ import parentTest.ParentTest;
 
 public class LoginTest extends ParentTest {
     @Test
-    public void validLogin(){
+    public void validLogin() {
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
-        loginPage.enterPasswordIntoInputLogin("909090");
-        loginPage.clickLoginButton();
+        loginPage.enterPasswordIntoInputPass("909090");
+        loginPage.clickOnLoginButton();
+        checkAcceptanceCriteria("Avater is not present",
+                homePage.isAvatarPresent(),true);
+        checkAcceptanceCriteria("Titles is not exepted",
+                homePage.getTitle(),"Учет запчастей");
+
     }
 
 }

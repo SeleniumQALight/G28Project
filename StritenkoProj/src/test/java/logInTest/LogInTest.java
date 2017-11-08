@@ -1,5 +1,6 @@
 package logInTest;
 
+import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -9,10 +10,11 @@ import parentTest.ParentTest;
 public class LogInTest extends ParentTest {
 
     @Test
-    public void validLogIn (){
+    public void validLogIn() {
         loginPage.openPage();
         loginPage.enterLogInInputLogin("Student");
-        loginPage.enterPassword("909090");
+        loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonLogIn();
+       checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(),true);
     }
 }
