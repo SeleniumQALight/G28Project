@@ -2,21 +2,30 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.hamcrest.CoreMatchers.is;
 
 
 public class ActionsWithOurWebElements {
+    //Переменные
     WebDriver webDriver;
     Logger logger;
+    WebDriverWait webDriverWait20; //ожидание 20 сек
 
 
+    /**
+     * @param webDriver
+     */
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
 
@@ -38,6 +47,17 @@ public class ActionsWithOurWebElements {
     public void clickOnWebElement(WebElement element) {
 
         try {
+            // явное ожидание
+            // дождись чтобы элемент появился в течении 20 сек если
+            // появился двигаемся дальше
+            webDriverWait20.until(ExpectedConditions.visibilityOf(element));
+
+            //явное ожидание
+            // дождаться пока данный элемент станет невидимым
+            //   webDriverWait20.until(ExpectedConditions.not(
+            //          ExpectedConditions.visibilityOf(element)));
+
+
             element.click();
             logger.info("Element was click");
         } catch (Exception e) {
@@ -99,30 +119,34 @@ public class ActionsWithOurWebElements {
     // checkBox
 
     /**
-     *
      * @param element
      * @param neededState !! only checked or unchecked
      */
     public void setStateToCheckBox(WebElement element, String neededState) {
 
         // если пришла неправильная инфо в метод - валим тест - Assert
-     //   Assert.assertEquals("Not Expected status","Checked",neededState);
+        //   Assert.assertEquals("Not Expected status","Checked",neededState);
 
         if (element.isSelected() && "Checked".equals(neededState)) {
             logger.info("Element is checked");
         } else if (element.isSelected() && "Unchecked".equals(neededState)) {
             clickOnWebElement(element);
 
-        }else if (!element.isSelected() && "Checked".equals(neededState)){
+        } else if (!element.isSelected() && "Checked".equals(neededState)) {
             clickOnWebElement(element);
-        }else if (!element.isSelected()&& "Unchecked".equals(neededState)){
+        } else if (!element.isSelected() && "Unchecked".equals(neededState)) {
             logger.info("Element is Unchecked");
         }
     }
 
+    public boolean isElementPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return webElement.isDisplayed() && webElement.isEnabled();
+        } catch (Exception e) {
+            return false;
 
-
-
-
+        }
+    }
 
 }
