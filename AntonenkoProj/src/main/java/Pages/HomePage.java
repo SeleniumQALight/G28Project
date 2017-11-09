@@ -14,6 +14,8 @@ public class HomePage extends ParentPage {
     private WebElement menuDictionary;
     @FindBy(id = "spares")
     private WebElement subMenuSpare;
+    @FindBy(id="apparat")
+    private WebElement subMenuApparat;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
@@ -35,5 +37,9 @@ public class HomePage extends ParentPage {
 
     public void clickOnSubMenuSpare() {
         actionsWithOurWebElements.clickOnWebElement(subMenuSpare);
+    }
+
+    public void clickOnSubMenuApparat() {
+        actionsWithOurWebElements.clickOnWebElement(subMenuApparat);
     }
 }
