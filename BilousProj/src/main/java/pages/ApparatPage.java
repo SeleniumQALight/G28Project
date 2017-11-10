@@ -6,16 +6,13 @@ import org.openqa.selenium.support.FindBy;
 
 
 public class ApparatPage extends ParrentPage {
-    @FindBy(id = "dictionary")
-    WebElement menuDictionary;
 
-    @FindBy(id = "apparat")
-    WebElement subMenuApparat;
+
     @FindBy(xpath = ".//a[@class='btn btn-info btn-sm' and @data-original-title='Add']")
     WebElement addButton;
-    @FindBy(xpath = ".//input[@id='apparat_apparatNumber']")
+    @FindBy(id = "apparat_apparatNumber")
     WebElement apparatNoInput;
-    @FindBy(xpath = ".//input[@id='apparat_apparatComment']")
+    @FindBy(id = "apparat_apparatComment")
     WebElement apparatCommentInput;
     @FindBy(xpath = ".//button[@type='submit']")
     WebElement createButton;
@@ -31,31 +28,15 @@ public class ApparatPage extends ParrentPage {
     WebElement removeButton;
     @FindBy(xpath = ".//table[@id='device_list']//tr//td[text()='51120173']//..//td[text()='BilousTestComment']")
     WebElement removedApparatDictionary;
-    @FindBy(xpath = ".//ul[@class='nav navbar-nav']")
-    WebElement profileBoxnav;
-    @FindBy(xpath = ".//li[@class='dropdown user user-menu open']")
-    WebElement profileBox;
-    @FindBy(xpath = ".//a[@href='/logout']")
-    WebElement logOutButton;
     @FindBy(id = "prov_cus_proCustIsFl")
     WebElement checkBox;
-    @FindBy(id = "spares")
-    WebElement submenuSpare;
+
 
 
     public ApparatPage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public void clickOnMenuDictionary() {
-        actionsWithOurWebElements.clickOnWebElement(menuDictionary);
-
-    }
-
-    public void selectOnDictionaryMenuItemApparat() {
-        actionsWithOurWebElements.clickOnWebElement(subMenuApparat);
-
-    }
 
     public void clickOnAddBtn() {
         actionsWithOurWebElements.clickOnWebElement(addButton);
@@ -102,19 +83,9 @@ public class ApparatPage extends ParrentPage {
         return actionsWithOurWebElements.elementIsNotPresent(removedApparatDictionary);
     }
 
-    public void expandProfileBox() {
-        actionsWithOurWebElements.clickOnWebElement(profileBoxnav);
-    }
 
-    public boolean isProfileBoxPresent() {
-        return actionsWithOurWebElements.isElementPresent(profileBox);
-    }
 
-    public void clickOnLogoutButton() {
-        actionsWithOurWebElements.clickOnWebElement(logOutButton);
-    }
 
-    public void clickonSubmenuSpare() {
-        actionsWithOurWebElements.clickOnWebElement(submenuSpare);
-    }
+
+
 }

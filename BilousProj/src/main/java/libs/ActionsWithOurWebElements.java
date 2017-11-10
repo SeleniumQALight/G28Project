@@ -2,19 +2,23 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
     Utils utils = new Utils();
+    WebDriverWait webDriverWait20;
 
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-
+        webDriverWait20 = new WebDriverWait(webDriver,20);
     }
 
     public void enterTextIntoInput(WebElement input, String text) {
@@ -32,7 +36,10 @@ public class ActionsWithOurWebElements {
 
     public void clickOnWebElement(WebElement element) {
         try {
-            utils.threadWait();
+            webDriverWait20.until(ExpectedConditions.visibilityOf(element));
+//            webDriverWait20.until(ExpectedConditions.not(
+//                    ExpectedConditions.visibilityOf(element)
+//            ));
             element.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -106,6 +113,16 @@ public class ActionsWithOurWebElements {
             clickOnWebElement(element);
         } else if (!element.isSelected() && "Unchecked".equals(neededState)) {
             logger.info("Element is Unchecked");
+        }
+
+    }
+
+    public boolean isElementPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return webElement.isDisplayed() && webElement.isEnabled();
+        }catch (Exception e){
+            return false;
         }
 
     }
