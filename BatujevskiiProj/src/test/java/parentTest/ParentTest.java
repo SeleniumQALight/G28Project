@@ -19,15 +19,15 @@ import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.is;
 
 public class ParentTest {
-    WebDriver driver;
+    public WebDriver driver;    // must be whithout publick
     public LoginPage loginPage;
     public HomePage homePage;
     public SparePage sparePage;
     public EditSparePage editSparePage;
 
-    private Utils utils = new Utils();
+    public Utils utils = new Utils();   // must be private
     private boolean isTestPass = false;
-    private String pathToScreenShot;
+    public String pathToScreenShot;     // must be private
 
     @Rule
     public TestName testName = new TestName();
@@ -58,8 +58,7 @@ public class ParentTest {
         driver.quit();
     }
 
-    protected void checkAcceptanceCriteria(String message, boolean actual
-            , boolean expected){
+    protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
         if (actual != expected){
             utils.screenShot(pathToScreenShot,driver);
         }
