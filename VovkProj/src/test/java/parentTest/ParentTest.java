@@ -1,9 +1,6 @@
 package parentTest;
 
-import Pages.HomePage;
-import Pages.LoginPage;
-import Pages.SdelkyPage;
-import Pages.StoronySdelokPage;
+import Pages.*;
 import libs.Utils;
 import logInTest.LoginTest;
 import org.junit.After;
@@ -25,6 +22,7 @@ public class ParentTest {
     public HomePage homePage;
     public StoronySdelokPage storonySdelokPage;
     public SdelkyPage sdelkyPage;
+    public SparePage sparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -44,6 +42,7 @@ public class ParentTest {
         homePage = new HomePage(driver);
         storonySdelokPage = new StoronySdelokPage(driver);
         sdelkyPage = new SdelkyPage(driver);
+        sparePage = new SparePage(driver);
     }
 
     @After
@@ -56,6 +55,14 @@ public class ParentTest {
 
     protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected) {
         if (actual != expected) {
+            utils.screenShot(pathToScreenShot, driver);
+        }
+        Assert.assertThat(message, actual, is(expected));
+        isTestPass = true;
+    }
+
+    protected void checkAcceptanceCriteria(String message, String actual, String expected) {
+        if (!actual.equals(expected)) {
             utils.screenShot(pathToScreenShot, driver);
         }
         Assert.assertThat(message, actual, is(expected));
