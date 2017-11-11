@@ -25,6 +25,8 @@ public class ParentTest {
     public EditNewSparePage editNewSparePage;
     public ApparatPage apparatPage;
     public EditApparatPage editApparatPage;
+    public TypeSdelkiPage typeSdelkiPage;
+    public EditTypeSdelkiPage editTypeSdelkiPage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -50,6 +52,8 @@ public class ParentTest {
         editNewSparePage = new EditNewSparePage(driver);
         apparatPage = new ApparatPage(driver);
         editApparatPage = new EditApparatPage(driver);
+        typeSdelkiPage = new TypeSdelkiPage(driver);
+        editTypeSdelkiPage = new EditTypeSdelkiPage(driver);
 
 
     }
