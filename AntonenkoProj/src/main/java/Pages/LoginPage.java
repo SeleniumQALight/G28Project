@@ -85,4 +85,8 @@ public class LoginPage {
         enterPassInToInputPass(pass);
         clickOnButtonLogIn();
     }
+
+    public boolean isInputLoginFieldPresent() {
+        return actionsWithOurWebElements.isElementPresent(inputLogin);
+    }
 }

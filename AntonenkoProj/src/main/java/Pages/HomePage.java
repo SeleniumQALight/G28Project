@@ -16,6 +16,10 @@ public class HomePage extends ParentPage {
     private WebElement subMenuSpare;
     @FindBy(id="apparat")
     private WebElement subMenuApparat;
+    @FindBy(xpath = ".//a[@class='dropdown-toggle']")
+    private WebElement avatarStudent;
+    @FindBy(xpath = ".//a[@href='/logout']")
+    private WebElement buttonLogout;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
@@ -41,5 +45,17 @@ public class HomePage extends ParentPage {
 
     public void clickOnSubMenuApparat() {
         actionsWithOurWebElements.clickOnWebElement(subMenuApparat);
+    }
+
+    public void clickOnStudentAvatar() {
+        actionsWithOurWebElements.clickOnWebElement(avatarStudent);
+    }
+
+    public boolean isLogoutButtonPresent() {
+        return actionsWithOurWebElements.isElementPresent(buttonLogout);
+    }
+
+    public void clickOnLogoutButton() {
+        actionsWithOurWebElements.clickOnWebElement(buttonLogout);
     }
 }
