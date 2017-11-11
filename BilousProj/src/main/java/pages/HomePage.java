@@ -15,7 +15,7 @@ public class HomePage extends ParrentPage {
     WebElement subMenuApparat;
     @FindBy(id = "spares")
     WebElement submenuSpare;
-    @FindBy(xpath = ".//ul[@class='nav navbar-nav']")
+    @FindBy(xpath = ".//li[@class='dropdown user user-menu']")
     WebElement profileBoxnav;
     @FindBy(xpath = ".//li[@class='dropdown user user-menu open']")
     WebElement profileBox;
@@ -30,11 +30,14 @@ public class HomePage extends ParrentPage {
     public boolean isAvatarPresent() {
         return actionsWithOurWebElements.isElementPresent(avatar);
     }
-    public void clickOnMenuDictionary() {
+
+     public void clickOnMenuDictionary() {
         actionsWithOurWebElements.clickOnWebElement(menuDictionary);
 
     }
-
+    public boolean listWithDictionaries() {
+        return actionsWithOurWebElements.isElementPresent(subMenuApparat);
+    }
     public void selectOnDictionaryMenuItemApparat() {
         actionsWithOurWebElements.clickOnWebElement(subMenuApparat);
 
@@ -42,7 +45,8 @@ public class HomePage extends ParrentPage {
     public void clickonSubmenuSpare() {
         actionsWithOurWebElements.clickOnWebElement(submenuSpare);
     }
-    public void expandProfileBox() {
+
+    public void menuProfileBox() {
         actionsWithOurWebElements.clickOnWebElement(profileBoxnav);
     }
 
@@ -53,5 +57,6 @@ public class HomePage extends ParrentPage {
     public void clickOnLogoutButton() {
         actionsWithOurWebElements.clickOnWebElement(logOutButton);
     }
+
 
 }

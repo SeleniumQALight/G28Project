@@ -8,6 +8,8 @@ public class AddDictionaryAppart extends ParentTest {
     public void addNewDictApparat() {
         loginPage.loginUser("Student","909090");
         homePage.clickOnMenuDictionary();
+        checkAcceptanceCriteria("List with dictionaries is not displayed",
+                homePage.listWithDictionaries(),true);
         homePage.selectOnDictionaryMenuItemApparat();
 
         apparatPage.clickOnAddBtn();
