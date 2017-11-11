@@ -3,12 +3,15 @@ package spare;
 import org.junit.Test;
 import parentTest.ParentTest;
 
+/**
+ * Created by user on 06.11.2017.
+ */
 public class AddNewSpare extends ParentTest {
-    final private String TEST_SPARE = "Spare1";
+    final private  String TEST_SPARE = "Spare1";
 
     @Test
     public void addNewSpare(){
-        loginPage.loginUser("Student","909090");
+        loginPage.loginUser("Student", "909090");
         homePage.checkTitle("Учет запчастей");
         homePage.checkZagolovok("Главная");
         homePage.clickOnMenuDictionary();
@@ -20,8 +23,8 @@ public class AddNewSpare extends ParentTest {
         editSparePage.selectTextInDropDownTypeOfSpare("Датчики");
         editSparePage.clickOnAddButton();
         sparePage.checkZagolovok("Запчасти Список");
-        checkAcceptanceCriteria(TEST_SPARE + " Can not find spare in List ",
-                sparePage.isSpareInList(TEST_SPARE),true);
+        sparePage.checkZagolovok("Запчасти список");
+        checkAcceptanceCriteria(TEST_SPARE + "Can not find spare in list ", sparePage.isSpareInList(TEST_SPARE), true);
 
     }
 }

@@ -1,7 +1,5 @@
 package libs;
-
-
-        import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,33 +10,23 @@ import java.io.IOException;
 
 public class Utils {
     private Logger log;
-    private WebDriver driver;
 
     public Utils(){
         log = Logger.getLogger(getClass());
     }
 
     /**
-     * Taking screenshot into .//target// + pathToScreenShot
+     *Taking screenshot into .//target// + pathToScreenShot
      * @param pathToScreenShot
      * @param driver
      */
-    public void screenShot(String pathToScreenShot, WebDriver driver){
+    public void screenShot (String pathToScreenShot, WebDriver driver){
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        try {
+        try{
             FileUtils.copyFile(scrFile, new File(pathToScreenShot));
             log.info("ScreenShot: " + pathToScreenShot);
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void threadWait(int msec){
-        try {
-            Thread.sleep(msec);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
-
     }
-}

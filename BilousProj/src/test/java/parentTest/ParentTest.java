@@ -19,6 +19,7 @@ public class ParentTest {
     public SparePage sparePage;
     public ApparatPage apparatPage;
     public DealTypePage dealTypePage;
+    public EditSparePage editSparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -42,8 +43,7 @@ public class ParentTest {
         sparePage = new SparePage(driver);
         apparatPage = new ApparatPage(driver);
         dealTypePage = new DealTypePage(driver);
-
-
+        editSparePage = new EditSparePage(driver);
 
     }
 
@@ -67,15 +67,16 @@ public class ParentTest {
         isTestPass = true;
     }
 
-    protected void checkAcceptanceCriteria(String message, String actual, String expected) {
+    /*protected void checkAcceptanceCriteria(String message,boolean actual, boolean expected) {
+
         if (!actual.equals(expected)) {
             utils.screenShot(pathToScreenShot, driver);
 
         }
         Assert.assertThat(message, actual, is(expected));
-        isTestPass = true;
-    }
-
-
-
+        isTestPass = true;*/
 }
+
+
+
+

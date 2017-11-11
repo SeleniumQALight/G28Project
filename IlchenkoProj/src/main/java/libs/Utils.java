@@ -1,7 +1,6 @@
 package libs;
 
-
-        import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,9 +9,11 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Created by user on 01.11.2017.
+ */
 public class Utils {
     private Logger log;
-    private WebDriver driver;
 
     public Utils(){
         log = Logger.getLogger(getClass());
@@ -31,14 +32,5 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void threadWait(int msec){
-        try {
-            Thread.sleep(msec);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 }

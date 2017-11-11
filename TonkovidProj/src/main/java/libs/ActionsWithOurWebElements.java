@@ -2,52 +2,50 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
-    WebDriverWait webDriverWait20;
 
-    public ActionsWithOurWebElements(WebDriver webDriver) {
+    /**
+     *
+     * @param webDriver
+     */
+    public void ActionsWhithOurElements (WebDriver webDriver){
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-        webDriverWait20 = new WebDriverWait(webDriver,20);
     }
 
-    public void enterTextInToInput(WebElement input, String text){
+    /**
+     *
+     * @param input
+     * @param text
+     */
+    public void enterTextInToinput(WebElement input,String text){
         try {
             input.clear();
             input.sendKeys(text);
-            logger.info(text + " was inputed to input ");
         }catch (Exception e){
-            logger.error("Can not work with input");
-            Assert.fail("Can not work with input");
+            logger.error(text+"this text is was inputed");
+            Assert.fail("Can not work with input field");
+         }
         }
-    }
 
-
-    public void clickOnWebElement(WebElement element) {
-        try{
-            webDriverWait20.until(ExpectedConditions.visibilityOf(element));
-//            webDriverWait20.until(ExpectedConditions.not(
-//                    ExpectedConditions.visibilityOf(element)
-//            ));
+       public void clickOnWebElement(WebElement element){
+        try {
             element.click();
-            logger.info("Element was clicked");
+            logger.info(element+" -Element was cliked");
         }catch (Exception e){
-            logger.error("Can not work with element");
-            Assert.fail("Can not work with element");
+            logger.error(element+ " -cant work with element");
+            Assert.fail(" cant work with element");
+
         }
-    }
+       }
 
     public boolean isElementPresent(WebElement element) {
         try {
@@ -97,14 +95,16 @@ public class ActionsWithOurWebElements {
             logger.info("Element is Unchecked");
         }
     }
-
-
-    public boolean isElementPresent(String locator) {
-        try{
+    public boolean isElementIsPresent(String locator){
+        try {
             WebElement webElement = webDriver.findElement(By.xpath(locator));
             return webElement.isDisplayed() && webElement.isEnabled();
+
         }catch (Exception e){
             return false;
+
         }
     }
-}
+    }
+
+

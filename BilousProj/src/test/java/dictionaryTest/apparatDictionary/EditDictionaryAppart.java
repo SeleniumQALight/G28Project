@@ -8,8 +8,8 @@ public class EditDictionaryAppart extends ParentTest {
     @Test
     public void editDictApparat() {
         loginPage.loginUser("Student","909090");
-        apparatPage.clickOnMenuDictionary();
-        apparatPage.selectOnDictionaryMenuItemApparat();
+        homePage.clickOnMenuDictionary();
+        homePage.selectOnDictionaryMenuItemApparat();
         apparatPage.clickOnAddBtn();
         apparatPage.enterInIntoInputApparatNumber("51120173");
         apparatPage.enterInIntoInputApparatComment("BilousTestComment");
