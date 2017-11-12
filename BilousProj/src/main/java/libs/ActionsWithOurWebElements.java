@@ -49,6 +49,8 @@ public class ActionsWithOurWebElements {
         }
     }
 
+
+
     public boolean isElementPresent(WebElement element) {
         try {
 
@@ -91,6 +93,15 @@ public class ActionsWithOurWebElements {
         }
     }
 
+    public boolean elementIsNotPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return !webElement.isDisplayed() && webElement.isEnabled();
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
     /*public void setStateToCheckBox(WebElement element) {
         if (!element.isSelected()) {
             element.click();
@@ -126,6 +137,20 @@ public class ActionsWithOurWebElements {
         }
 
     }
+
+    public void clickOnWebElement(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            webDriverWait20.until(ExpectedConditions.visibilityOf(webElement));
+            webElement.click();
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+
+        }
+    }
+
 
 
    /* public boolean areElementsPresent(String locator) {
