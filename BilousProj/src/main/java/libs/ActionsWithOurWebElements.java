@@ -18,7 +18,7 @@ public class ActionsWithOurWebElements {
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-        webDriverWait20 = new WebDriverWait(webDriver,20);
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
     public void enterTextIntoInput(WebElement input, String text) {
@@ -121,11 +121,23 @@ public class ActionsWithOurWebElements {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(locator));
             return webElement.isDisplayed() && webElement.isEnabled();
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
 
     }
+
+
+   /* public boolean areElementsPresent(String locator) {
+        try {
+            List<WebElement> webElement = webDriver.findElements(By.xpath(locator));
+            for (WebElement element : webElement) {
+                return webElement.isDisplayed() && webElement.isEnabled();
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }*/
 }
 
 
