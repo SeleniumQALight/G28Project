@@ -13,6 +13,7 @@ public class LoginTest extends ParentTest {
         loginPage.clickOnButtonLogIn();
         checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(), true
         );
+        checkAcceptanceCriteria("Title is not expected", homePage.getTitle(),"Учет запчастей");
     }
     @Test
     public void invalidLogin(){

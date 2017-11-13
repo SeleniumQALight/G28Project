@@ -10,6 +10,18 @@ public class HomePage extends ParentPage {
     WebElement avatar;
     @FindBy (xpath = ".//li[@id='deal']")
     WebElement sdelki;
+    @FindBy(xpath =".//*[@id='dictionary']/a")
+    private WebElement menuDictionary;
+    @FindBy(id = "spares")
+    private WebElement subMenuSpare;
+    @FindBy(id="apparat")
+    private WebElement subMenuApparat;
+    @FindBy(xpath = ".//a[@class='dropdown-toggle']")
+    private WebElement avatarStudent;
+    @FindBy(xpath = ".//a[@href='/logout']")
+    private WebElement buttonLogout;
+    @FindBy(xpath = ".//a[@ href='/dictionary/deal_type']")
+    private WebElement subMenuTypeSdelki;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
@@ -23,5 +35,33 @@ public class HomePage extends ParentPage {
     public void clickOnSdelkiLink (){
 
         actionsWithOurWebElements.clickOnWebElement(sdelki);
+    }
+
+    public void clickOnMenuDictionary() {
+        actionsWithOurWebElements.clickOnWebElement(menuDictionary);
+    }
+
+    public void clickOnSubMenuSpare() {
+        actionsWithOurWebElements.clickOnWebElement(subMenuSpare);
+    }
+
+    public void clickOnSubMenuApparat() {
+        actionsWithOurWebElements.clickOnWebElement(subMenuApparat);
+    }
+
+    public void clickOnStudentAvatar() {
+        actionsWithOurWebElements.clickOnWebElement(avatarStudent);
+    }
+
+    public boolean isLogoutButtonPresent() {
+        return actionsWithOurWebElements.isElementPresent(buttonLogout);
+    }
+
+    public void clickOnLogoutButton() {
+        actionsWithOurWebElements.clickOnWebElement(buttonLogout);
+    }
+
+    public void clickonSubMenuTypeSdelki() {
+        actionsWithOurWebElements.clickOnWebElement(subMenuTypeSdelki);
     }
 }
