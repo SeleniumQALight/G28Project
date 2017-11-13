@@ -9,11 +9,18 @@ public class AddNewSpare extends ParentTest {
     @Test
     public void addNewSpare() {
         loginPage.loginUser("Student", "909090");
-        homePage.checkTitle("Учет запчастей");
-        homePage.checkZagolovok("Главная");
+        homePage.checkTitle("РЈС‡РµС‚ Р·Р°РїС‡Р°СЃС‚РµР№");
+        homePage.checkZagolovok("Р“Р»Р°РІРЅР°СЏ");
         homePage.clickOnMenuDictionary();
         homePage.clickOnSubMenuSpare();
-        sparePage.checkZagolovok("Запчасти Список");
+        sparePage.checkZagolovok("Р—Р°РїС‡Р°СЃС‚Рё РЎРїРёСЃРѕРє");
+        sparePage.clickOnPlusButton();
+        editSparePage.checkZagolovok("РЎР»РѕРІР°СЂСЊ");
+        editSparePage.enterTextInToInputSpareName(TEST_SPARE);
+        editSparePage.selectTextInDropDownTypeOfSpare("Р”Р°С‚С‡РёРєРё");
+        editSparePage.clickOnAddButton();
+        sparePage.checkZagolovok("Р—Р°РїС‡Р°СЃС‚Рё РЎРїРёСЃРѕРє");
+        checkAcceptanceCriteria(TEST_SPARE + "Can not find spare in List", sparePage.isSparInList(TEST_SPARE), true);
         }
 }
 
