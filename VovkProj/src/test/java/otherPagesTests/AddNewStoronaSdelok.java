@@ -10,6 +10,10 @@ public class AddNewStoronaSdelok extends ParentTest{
     final private String CUST_ADDRESS = "Customer Address";
     final private String CUST_PHONE = "Customer Phone";
 
+    public AddNewStoronaSdelok(String browser) {
+        super(browser);
+    }
+
 
     @Test
     public void addNewStoronaSdelok() {

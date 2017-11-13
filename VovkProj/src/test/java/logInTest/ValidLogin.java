@@ -1,11 +1,14 @@
 package logInTest;
 
-import Pages.HomePage;
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class LoginTest extends ParentTest {
+public class ValidLogin extends ParentTest {
+
+    public ValidLogin(String browser) {
+        super(browser);
+    }
+
     @Test
     public void validLogin() {
         loginPage.openPageLogin();
