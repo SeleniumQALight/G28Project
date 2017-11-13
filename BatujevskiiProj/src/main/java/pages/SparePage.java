@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class SparePage extends ParentPage {
 
     @FindBy(xpath = "//*[@href='http://v3.test.itpmgroup.com/dictionary/spares/edit']")
@@ -42,19 +44,38 @@ public class SparePage extends ParentPage {
     }
 
     public void deleteSpareInList(String nameOfSpare) {
+
         WebElement webElement = webDriver.findElement(By.xpath(".//*[text()='" + nameOfSpare + "']"));
-        while ( actionsWithOurWebElements.isElementPresent(webElement)  ) {
+
+        while (actionsWithOurWebElements.isElementPresent(webElement)) {
             clickOnSpareName(nameOfSpare);
             clickOnDeleteButton();
             logger.info("Delete element " + nameOfSpare);
             try {
                 webElement = webDriver.findElement(By.xpath(".//*[text()='" + nameOfSpare + "']"));
-            }catch (Exception e)  {
+            } catch (Exception e) {
                 return;
             }
 
         }
     }
+    public void deleteSpareInListList(String nameOfSpare) {
+        try {
+            List<WebElement> listOfWebElement = webDriver.findElements(By.xpath(".//*[text()='" + nameOfSpare + "']"));
+
+            for (WebElement elementOfList : listOfWebElement) {
+
+                actionsWithOurWebElements.clickOnWebElement(elementOfList);
+                clickOnDeleteButton();
+                logger.info("Delete element " + nameOfSpare);
+            }
+        }catch (Exception e) {
+         return;
+        }
+    }
+
+
+
 
 
 }

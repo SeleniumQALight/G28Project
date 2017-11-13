@@ -24,7 +24,8 @@ public class AddNewSpare extends ParentTest {
         sparePage.checkZagolovok("Запчасти Список");
         checkAcceptanceCriteria(TEST_SPARE + " Can not find spare in list", sparePage.isSpareInList(TEST_SPARE), true);
         // utils.screenShot(pathToScreenShot, parentTest.driver);
-        sparePage.deleteSpareInList(TEST_SPARE);
+ //       sparePage.deleteSpareInList(TEST_SPARE);
+    sparePage.deleteSpareInListList(TEST_SPARE);
         checkAcceptanceCriteria(TEST_SPARE + " Can not delete spare in list", sparePage.isSpareInList(TEST_SPARE), false);
      //   utils.screenShot(pathToScreenShot);
 
