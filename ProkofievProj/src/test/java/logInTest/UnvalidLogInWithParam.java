@@ -11,19 +11,20 @@ import java.util.Collection;
 
 @RunWith(value = Parameterized.class)
 public class UnvalidLogInWithParam extends ParentTest {
-    String login, pass;
+    String login, pass, browser;
 
-    public UnvalidLogInWithParam(String login, String pass) {
+    public UnvalidLogInWithParam(String login, String pass, String browser) {
+        super(browser);
         this.login = login;
         this.pass = pass;
-    }
+            }
 
     @Parameterized.Parameters
     public static Collection testDData(){
         return Arrays.asList(new Object[][]{
-                {"Student", "906090"},
-                {"tudent", "909090"},
-                {"Student", "909090"}
+                {"chrome","Student", "906090"},
+                {"chrome","tudent", "909090"},
+                {"chrome","Student", "909090"}
         });
     }
 
