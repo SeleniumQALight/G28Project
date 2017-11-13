@@ -18,7 +18,7 @@ public class ActionsWithOurWebElements {
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-        webDriverWait20 = new WebDriverWait(webDriver,20);
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
     public void enterTextIntoInput(WebElement input, String text) {
@@ -48,6 +48,8 @@ public class ActionsWithOurWebElements {
 
         }
     }
+
+
 
     public boolean isElementPresent(WebElement element) {
         try {
@@ -91,6 +93,15 @@ public class ActionsWithOurWebElements {
         }
     }
 
+    public boolean elementIsNotPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return !webElement.isDisplayed() && webElement.isEnabled();
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
     /*public void setStateToCheckBox(WebElement element) {
         if (!element.isSelected()) {
             element.click();
@@ -121,11 +132,37 @@ public class ActionsWithOurWebElements {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(locator));
             return webElement.isDisplayed() && webElement.isEnabled();
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
 
     }
+
+    public void clickOnWebElement(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            webDriverWait20.until(ExpectedConditions.visibilityOf(webElement));
+            webElement.click();
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+
+        }
+    }
+
+
+
+   /* public boolean areElementsPresent(String locator) {
+        try {
+            List<WebElement> webElement = webDriver.findElements(By.xpath(locator));
+            for (WebElement element : webElement) {
+                return webElement.isDisplayed() && webElement.isEnabled();
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }*/
 }
 
 
