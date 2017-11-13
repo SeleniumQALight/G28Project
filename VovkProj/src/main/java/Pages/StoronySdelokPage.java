@@ -28,7 +28,7 @@ public class StoronySdelokPage extends ParentPage{
         actionsWithOurWebElements.clickOnWebElement(buttonAdd);
         actionsWithOurWebElements.enterTextIntoInput(proCustName, name);
         actionsWithOurWebElements.enterTextIntoInput(proCustAddress, address);
-        actionsWithOurWebElements.setStateToCheckBox(checkboxPrivatePerson, privatePerson);
+        actionsWithOurWebElements.setStateToCheckBox(checkboxPrivatePerson, "Checked");
         actionsWithOurWebElements.clickOnWebElement(buttonSave);
     }
 

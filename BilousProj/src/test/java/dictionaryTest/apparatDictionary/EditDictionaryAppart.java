@@ -5,23 +5,27 @@ import parentTest.ParentTest;
 
 
 public class EditDictionaryAppart extends ParentTest {
+    final private String apparatNumber = "12112017";
+    final private String apparatComment = "BilousTestComment";
+    final private String editedApparatNumber = "121120172";
+    final private String editedApparatComment = "BilousTestCommentEdited";
+
+
+
     @Test
     public void editDictApparat() {
         loginPage.loginUser("Student","909090");
-        apparatPage.clickOnMenuDictionary();
-        apparatPage.selectOnDictionaryMenuItemApparat();
-        apparatPage.clickOnAddBtn();
-        apparatPage.enterInIntoInputApparatNumber("51120173");
-        apparatPage.enterInIntoInputApparatComment("BilousTestComment");
-        apparatPage.clickCreateButton();
-        apparatPage.clickOnApparatDictionary();
+        homePage.clickOnMenuDictionary();
+        homePage.selectOnDictionaryMenuItemApparat();
+        apparatPage.addNewApparatDictionary();
+        apparatPage.clickOnApparatDictionary(apparatNumber,apparatComment );
 
         /**Editing text in dictionary inputs*/
-        apparatPage.enterInIntoInputApparatNumber("511201731");
-        apparatPage.enterInIntoInputApparatComment("BilousTestCommentEdited");
+        apparatPage.enterInIntoInputApparatNumber(editedApparatNumber);
+        apparatPage.enterInIntoInputApparatComment(editedApparatComment);
         apparatPage.clickOnSaveButton();
         checkAcceptanceCriteria("Edited Dictionary is not present",
-                apparatPage.isEditeddDictionaryPresent(), true);
+                apparatPage.isAddedApparatDictionaryPresent(editedApparatNumber,editedApparatComment), true);
 
 
     }
