@@ -4,7 +4,7 @@ import org.junit.Test;
 import parentTest.ParentTest;
 
 public class AddNewSpare extends ParentTest {
-    final private String TEST_SPARE = "Spare1";
+    final private String TEST_SPARE = "Spare456";
 
     @Test
     public void addNewSpare() {
@@ -12,8 +12,16 @@ public class AddNewSpare extends ParentTest {
         homePage.checkTitle("Учет запчастей");
         homePage.checkZagolovok("Главная");
         homePage.clickOnMenuDictionary();
-        homePage.clinOnSubMenuSpare();
+        homePage.clickOnSubMenuSpare();
         sparePage.checkZagolovok("Запчасти Список");
+        sparePage.clickOnPlusButton();
+        editSparePage.checkZagolovok("Словарь");
+        editSparePage.enterTextIntoSpareName(TEST_SPARE);
+        editSparePage.selectTextInDropDownTypeOfSpare("Датчики");
+        editSparePage.clickOnAddButton();
+        sparePage.checkZagolovok("Запчасти Список");
+        checkAcceptanceCriteria(TEST_SPARE + " Can not find spare in list", sparePage.isSpareInList(TEST_SPARE), true );
+
 
     }
 

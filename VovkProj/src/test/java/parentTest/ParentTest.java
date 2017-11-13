@@ -2,7 +2,6 @@ package parentTest;
 
 import Pages.*;
 import libs.Utils;
-import logInTest.LoginTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,8 +20,9 @@ public class ParentTest {
     public LoginPage loginPage;
     public HomePage homePage;
     public StoronySdelokPage storonySdelokPage;
-    public SdelkyPage sdelkyPage;
+    public EditStoronySdelokPage editStoronySdelokPage;
     public SparePage sparePage;
+    public EditSparePage editSparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -41,8 +41,9 @@ public class ParentTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         storonySdelokPage = new StoronySdelokPage(driver);
-        sdelkyPage = new SdelkyPage(driver);
+        editStoronySdelokPage = new EditStoronySdelokPage(driver);
         sparePage = new SparePage(driver);
+        editSparePage = new EditSparePage(driver);
     }
 
     @After
