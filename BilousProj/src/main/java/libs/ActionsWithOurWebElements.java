@@ -2,19 +2,23 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
     Utils utils = new Utils();
+    WebDriverWait webDriverWait20;
 
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
     public void enterTextIntoInput(WebElement input, String text) {
@@ -32,7 +36,10 @@ public class ActionsWithOurWebElements {
 
     public void clickOnWebElement(WebElement element) {
         try {
-            utils.threadWait();
+            webDriverWait20.until(ExpectedConditions.visibilityOf(element));
+//            webDriverWait20.until(ExpectedConditions.not(
+//                    ExpectedConditions.visibilityOf(element)
+//            ));
             element.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -41,6 +48,8 @@ public class ActionsWithOurWebElements {
 
         }
     }
+
+
 
     public boolean isElementPresent(WebElement element) {
         try {
@@ -84,6 +93,15 @@ public class ActionsWithOurWebElements {
         }
     }
 
+    public boolean elementIsNotPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return !webElement.isDisplayed() && webElement.isEnabled();
+        } catch (Exception e) {
+            return true;
+        }
+    }
+
     /*public void setStateToCheckBox(WebElement element) {
         if (!element.isSelected()) {
             element.click();
@@ -109,6 +127,42 @@ public class ActionsWithOurWebElements {
         }
 
     }
+
+    public boolean isElementPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return webElement.isDisplayed() && webElement.isEnabled();
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
+
+    public void clickOnWebElement(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            webDriverWait20.until(ExpectedConditions.visibilityOf(webElement));
+            webElement.click();
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            logger.error("Can not work with element");
+            Assert.fail("Can not work with element");
+
+        }
+    }
+
+
+
+   /* public boolean areElementsPresent(String locator) {
+        try {
+            List<WebElement> webElement = webDriver.findElements(By.xpath(locator));
+            for (WebElement element : webElement) {
+                return webElement.isDisplayed() && webElement.isEnabled();
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }*/
 }
 
 

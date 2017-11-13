@@ -1,5 +1,6 @@
 package parentTest;
 
+import Pages.EditSparePage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.SparePage;
@@ -22,6 +23,7 @@ public class ParentTest {
     public LoginPage loginPage;
     public HomePage homePage;
     public SparePage sparePage;
+    public EditSparePage editSparePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -40,6 +42,7 @@ public class ParentTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         sparePage = new SparePage(driver);
+        editSparePage = new EditSparePage(driver);
     }
 
     @After
