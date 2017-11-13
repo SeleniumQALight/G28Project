@@ -1,13 +1,13 @@
 package logInTest;
 
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-import java.util.Calendar;
-import java.util.logging.SimpleFormatter;
+public class ValidLogIn extends ParentTest {
+    public ValidLogIn(String browser) {
+        super(browser);
+    }
 
-public class LogInTest extends ParentTest {
     @Test
     public void validLogIn(){
         loginPage.openPageLogin();
