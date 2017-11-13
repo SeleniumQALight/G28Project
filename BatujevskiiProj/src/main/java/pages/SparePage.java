@@ -42,9 +42,18 @@ public class SparePage extends ParentPage {
     }
 
     public void deleteSpareInList(String nameOfSpare) {
-        clickOnSpareName(nameOfSpare);
-        clickOnDeleteButton();
-        logger.info("Delete element " + nameOfSpare );
+        WebElement webElement = webDriver.findElement(By.xpath(".//*[text()='" + nameOfSpare + "']"));
+        while ( actionsWithOurWebElements.isElementPresent(webElement)  ) {
+            clickOnSpareName(nameOfSpare);
+            clickOnDeleteButton();
+            logger.info("Delete element " + nameOfSpare);
+            try {
+                webElement = webDriver.findElement(By.xpath(".//*[text()='" + nameOfSpare + "']"));
+            }catch (Exception e)  {
+                return;
+            }
+
+        }
     }
 
 
