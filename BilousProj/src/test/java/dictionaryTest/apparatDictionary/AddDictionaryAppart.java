@@ -7,6 +7,10 @@ public class AddDictionaryAppart extends ParentTest {
     final private String apparatNumber = "12112017";
     final private String apparatComment = "BilousTestComment";
 
+    public AddDictionaryAppart(String browser) {
+        super(browser);
+    }
+
     @Test
     public void addNewDictApparat() {
         loginPage.loginUser("Student","909090");
