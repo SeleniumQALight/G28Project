@@ -16,20 +16,19 @@ public class ActionsWithOurWebElements {
     WebDriverWait webDriverWait20;
 
 
-
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-        webDriverWait20= new WebDriverWait(webDriver,20);
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
 
     }
 
-    public void enterTextInToInput(WebElement input, String text){
+    public void enterTextInToInput(WebElement input, String text) {
         try {
             input.clear();
             input.sendKeys(text);
             logger.info(text + " was inputed to input ");
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Can not work with input");
             Assert.fail("Can not work with input");
         }
@@ -37,13 +36,13 @@ public class ActionsWithOurWebElements {
 
 
     public void clickOnWebElement(WebElement element) {
-        try{
+        try {
             webDriverWait20.until(ExpectedConditions.visibilityOf(element));
-      //      webDriverWait20.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
+            //      webDriverWait20.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)));
 
             element.click();
             logger.info("Element was clicked");
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
@@ -52,48 +51,47 @@ public class ActionsWithOurWebElements {
     public boolean isElementPresent(WebElement element) {
         try {
             return element.isDisplayed() && element.isEnabled();
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
 
-    public void selectItemInDropDownByVisibleText(WebElement elementDD,String textForSelect){
-        try{
+    public void selectItemInDropDownByVisibleText(WebElement elementDD, String textForSelect) {
+        try {
             Select optionsFromDD = new Select(elementDD);
             optionsFromDD.selectByVisibleText(textForSelect);
             logger.info(textForSelect + " was selected in DD");
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
 
-    public void selectItemInDropDownByValue(WebElement elementDD,String valueInDD){
-        try{
+    public void selectItemInDropDownByValue(WebElement elementDD, String valueInDD) {
+        try {
             Select optionsFromDD = new Select(elementDD);
             optionsFromDD.selectByValue(valueInDD);
             logger.info(valueInDD + " was selected in DD");
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
 
     /**
-     *
      * @param element
      * @param neededState !! only Checked OR Unchecked
      */
-    public void setStateToCheckBox(WebElement element, String neededState){
+    public void setStateToCheckBox(WebElement element, String neededState) {
 //        Assert.assertEquals("Not Expected status", "Checked",neededState);
 
-        if (element.isSelected() && "Checked".equals(neededState)){
+        if (element.isSelected() && "Checked".equals(neededState)) {
             logger.info("Element is checked");
-        } else if (element.isSelected() && "Unchecked".equals(neededState)){
+        } else if (element.isSelected() && "Unchecked".equals(neededState)) {
             clickOnWebElement(element);
-        } else if (!element.isSelected() && "Checked".equals(neededState)){
+        } else if (!element.isSelected() && "Checked".equals(neededState)) {
             clickOnWebElement(element);
-        } else if (!element.isSelected() && "Unchecked".equals(neededState)){
+        } else if (!element.isSelected() && "Unchecked".equals(neededState)) {
             logger.info("Element is Unchecked");
         }
     }
@@ -102,11 +100,16 @@ public class ActionsWithOurWebElements {
     public boolean isElementPresent(String locator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(locator));
-            return  webElement.isDisplayed() && webElement.isEnabled();
+            return webElement.isDisplayed() && webElement.isEnabled();
 
-        }catch(Exception e){
+        } catch (Exception e) {
+   return false ;
+        }
 
-            }
+    }
 
+
+
+    public void enterTextIntoInput(WebElement inputSpareName, String spareName) {
     }
 }
