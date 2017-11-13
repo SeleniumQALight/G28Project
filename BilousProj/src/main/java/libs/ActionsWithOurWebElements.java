@@ -9,6 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
@@ -153,16 +156,20 @@ public class ActionsWithOurWebElements {
 
 
 
-   /* public boolean areElementsPresent(String locator) {
-        try {
-            List<WebElement> webElement = webDriver.findElements(By.xpath(locator));
-            for (WebElement element : webElement) {
-                return webElement.isDisplayed() && webElement.isEnabled();
-            }
-        } catch (Exception e) {
-            return false;
-        }
-    }*/
+   public boolean areElementsPresent(String locator) {
+
+       try {
+           List<WebElement> webElement = new ArrayList<WebElement>(webDriver.findElements(By.xpath(locator)));
+           for (WebElement element : webElement) {
+               return element.isDisplayed() && element.isEnabled();
+           }
+           return false;
+
+       } catch (Exception e) {
+           return false;
+       }
+   }
+
 }
 
 
