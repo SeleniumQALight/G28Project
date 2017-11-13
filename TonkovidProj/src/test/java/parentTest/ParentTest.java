@@ -4,11 +4,11 @@ import libs.Utils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.SparePage;
+import pages.*;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -21,9 +21,11 @@ public class ParentTest {
     public LoginPage loginPage;
     public HomePage homePage;
     public SparePage sparePage;
+    public DealsPage dealsPage;
     private Utils utils;
     private String pathToScreenShot;
     private boolean isTestPass=false;
+
 
 
     @Before
@@ -45,7 +47,12 @@ public class ParentTest {
         if (actual != expected) {
             utils.screenShot(pathToScreenShot, driver);
         }
+        Assert.assertThat(massage,actual,is(expected));
+        isTestPass = true;
     }
+
+
+
     protected void checkAcceptanceCriteria(String message, String actual
             , String expected){
         if (!actual.equals(expected)){
