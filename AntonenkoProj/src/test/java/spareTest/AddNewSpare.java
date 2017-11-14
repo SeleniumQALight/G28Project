@@ -6,6 +6,10 @@ import parentTest.ParentTest;
 public class AddNewSpare extends ParentTest {
     final private String TEST_SPARE = "SpareAntonenko";
 
+    public AddNewSpare(String browser) {
+        super(browser);
+    }
+
     @Test
     public void addNewSpare(){
 

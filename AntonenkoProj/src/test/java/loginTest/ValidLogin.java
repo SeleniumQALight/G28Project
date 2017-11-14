@@ -1,10 +1,14 @@
 package loginTest;
 
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class LoginTest extends ParentTest {
+public class ValidLogin extends ParentTest {
+
+    public ValidLogin(String browser) {
+        super(browser);
+    }
+
     @Test
     public void validLogin() {
         loginPage.openPageLogin();
@@ -14,13 +18,5 @@ public class LoginTest extends ParentTest {
         checkAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(), true
         );
         checkAcceptanceCriteria("Title is not expected", homePage.getTitle(),"Учет запчастей");
-    }
-    @Test
-    public void invalidLogin(){
-        loginPage.openPageLogin();
-        loginPage.enterLoginIntoInputLogin("udent");
-        loginPage.enterPassInToInputPass("909090");
-        loginPage.clickOnButtonLogIn();
-        Assert.assertTrue("Button is not displayed", loginPage.isButtonLoginPresent());
     }
 }
