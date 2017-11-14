@@ -6,6 +6,10 @@ import parentTest.ParentTest;
 
 
 public class LogoutTest extends ParentTest {
+   public LogoutTest(String browser) {
+      super(browser);
+   }
+
    @Test
     public void logOut() {
        loginPage.loginUser("Student", "909090");

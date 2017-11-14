@@ -10,6 +10,9 @@ public class EditDictionaryAppart extends ParentTest {
     final private String editedApparatNumber = "121120172";
     final private String editedApparatComment = "BilousTestCommentEdited";
 
+    public EditDictionaryAppart(String browser) {
+        super(browser);
+    }
 
 
     @Test

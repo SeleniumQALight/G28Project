@@ -3,7 +3,12 @@ package loginTest;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class LoginTest extends ParentTest {
+
+public class ValidLogin extends ParentTest {
+    public ValidLogin(String browser) {
+        super(browser);
+    }
+
     @Test
     public void validLogin() {
         loginPage.openPageLogin();
@@ -11,10 +16,8 @@ public class LoginTest extends ParentTest {
         loginPage.enterPasswordIntoInputPass("909090");
         loginPage.clickOnLoginButton();
         checkAcceptanceCriteria("Avater is not present",
-                homePage.isAvatarPresent(),true);
-        //checkAcceptanceCriteria("Titles is not exepted",
-          //      homePage.getTitle(),"Учет запчастей");
-
+                homePage.isAvatarPresent(), true);
+        checkAcceptanceCriteria("Titles is not exepted",
+                homePage.getTitle(), "Учет запчастей");
     }
-
 }
