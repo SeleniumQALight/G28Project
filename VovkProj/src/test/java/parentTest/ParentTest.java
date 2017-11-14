@@ -33,6 +33,7 @@ public class ParentTest {
     public EditStoronySdelokPage editStoronySdelokPage;
     public SparePage sparePage;
     public EditSparePage editSparePage;
+    public ProfilePage profilePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
@@ -52,9 +53,9 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
 //               {"fireFox"}
 ////                ,
-//                {"chrome"}
+                {"chrome"}
 //                ,
-                {"iedriver"}
+//                {"iedriver"}
 //                ,
 //                    { "opera" }
 //                ,
@@ -94,6 +95,8 @@ public class ParentTest {
         editStoronySdelokPage = new EditStoronySdelokPage(driver);
         sparePage = new SparePage(driver);
         editSparePage = new EditSparePage(driver);
+        profilePage = new ProfilePage(driver);
+
     }
 
     @After
