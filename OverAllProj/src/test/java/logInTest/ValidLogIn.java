@@ -12,7 +12,7 @@ public class ValidLogIn extends ParentTest {
     public void validLogIn(){
         loginPage.openPageLogin();
         loginPage.enterLogInIntoInputLogin("Student");
-        loginPage.enterPassInToInputPass("90900");
+        loginPage.enterPassInToInputPass("909090");
         loginPage.clickOnButtonLogIn();
         checkAcceptanceCriteria("Avatar is not present",
                 homePage.isAvatarPresent(),true);
