@@ -7,6 +7,11 @@ public class AddNewApparatTest extends ParentTest {
 
     final private String APPARAT_COMMENT = "ApparatAntonenko";
     final private String APPARAT_NUMBER = "999";
+
+    public AddNewApparatTest(String browser) {
+        super(browser);
+    }
+
     @Test
 
     public void addNewApparat() {

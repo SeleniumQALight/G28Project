@@ -30,8 +30,11 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//div[@class='user-panel']//div//p")
     WebElement userNameHomepage;
 
-    @FindBy(xpath=".//*[@id='dictionary']/a")
-    private WebElement menuDictionary;
+    @FindBy(id = "dictionary")
+    WebElement menuDictionary;
+
+    @FindBy(id="prov_cus")
+    private WebElement subMenuStoronySdelok;
 
     @FindBy(id = "spares")
     private WebElement subMenuSpare;
@@ -48,16 +51,6 @@ public class HomePage extends ParentPage {
         try {
             webDriver.get("http://v3.test.itpmgroup.com/dictionary/providers");
             logger.info("Page StoronySdelok was opened");
-        } catch (Exception e) {
-            logger.error("Can not open url");
-            Assert.fail("Can not open url");
-        }
-    }
-
-    public void openPageSdelky() {
-        try {
-            webDriver.get("http://v3.test.itpmgroup.com/deal");
-            logger.info("Page Sdelky was opened");
         } catch (Exception e) {
             logger.error("Can not open url");
             Assert.fail("Can not open url");
@@ -92,8 +85,12 @@ public class HomePage extends ParentPage {
         actionsWithOurWebElements.clickOnWebElement(menuDictionary);
     }
 
-    public void clinOnSubMenuSpare() {
+    public void clickOnSubMenuSpare() {
         actionsWithOurWebElements.clickOnWebElement(subMenuSpare);
+    }
+
+    public void clickOnSubMenuStoronySdelok() {
+        actionsWithOurWebElements.clickOnWebElement(subMenuStoronySdelok);
     }
 
 }

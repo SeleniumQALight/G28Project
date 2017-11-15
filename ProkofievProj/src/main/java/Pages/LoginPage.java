@@ -1,6 +1,7 @@
 package Pages;
 
 import junit.framework.Assert;
+import lib.ConfigData;
 import libs.ActionsWithOurWebElements;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -9,10 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    WebDriver webDriver;
-    Logger logger;
-    ActionsWithOurWebElements actionsWithOurWebElements;
+public class LoginPage extends ParentPage{
+
 
     @FindBy(name = "_username")
     WebElement inputLogin;
@@ -24,15 +23,12 @@ public class LoginPage {
     WebElement buttonLogIn;
 
     public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        logger = Logger.getLogger(getClass());
-        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
-        PageFactory.initElements(webDriver, this);
+        super(webDriver);
     }
 
     public void openPageLogin() {
         try {
-            webDriver.get("http://v3.test.itpmgroup.com/login");
+            webDriver.get(ConfigData.getCfgValue("base_url") + "/login");
             logger.info("Page login was opened");
         } catch (Exception e) {
             logger.error("Can not open url");
