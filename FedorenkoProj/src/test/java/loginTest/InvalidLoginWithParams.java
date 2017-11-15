@@ -11,10 +11,10 @@ import java.util.Collection;
 @RunWith(value = Parameterized.class) // стандартная строка для запуска теста с параметрами через junit
 
 
-public class UnvalidLoginWithParams extends ParentTest {
+public class InvalidLoginWithParams extends ParentTest {
     String login, pass; // параметры для запуска параметризированого теста
 
-    public UnvalidLoginWithParams(String browser ,String login, String pass) { // создаем конструктор дял настройки класа
+    public InvalidLoginWithParams(String browser , String login, String pass) { // создаем конструктор дял настройки класа
         super(browser);
         this.login = login;                         // сколько даных в конструкторе столько будет
         this.pass = pass;                                 // вариантов на каждый тест в классе;

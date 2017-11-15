@@ -1,6 +1,7 @@
 package parentTest;
 
 import jdk.internal.org.objectweb.asm.tree.analysis.Value;
+import libs.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -40,6 +41,7 @@ public class ParentTest {
     private  String browser;
     public EditSparePage editSparePage;
     Logger log;
+    public ExcelDriver excelDriver;
 
     @Rule
     public TestName testName = new TestName();
@@ -54,7 +56,7 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
 //               {"fireFox"}
 ////                ,
-//                {"chrome"}
+                {"chrome"}
 //                ,
                // {"iedriver"}
 //                ,
@@ -71,7 +73,6 @@ public class ParentTest {
         pathToScreenShot = "..\\OverAllProj\\target\\screenshot\\" + this.getClass().getPackage().getName()
                 + "\\" + this.getClass().getSimpleName() + "\\" +
                 this.testName.getMethodName() + ".jpg";
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         if ("chrome".equals(browser)) {
             log.info("Chrome will be started");
             File fileFF = new File(".././drivers/chromedriver.exe");
@@ -88,12 +89,14 @@ public class ParentTest {
             capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             driver = new InternetExplorerDriver();
             log.info(" IE is started");
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         sparePage = new SparePage(driver);
         editSparePage = new EditSparePage(driver);
+        excelDriver = new ExcelDriver();
     }
 
     @After
