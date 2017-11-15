@@ -11,6 +11,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -57,9 +62,9 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
 //               {"fireFox"}
 ////                ,
-//                {"chrome"}
+                {"chrome"}
 //                ,
-                { "iedriver" }
+//                { "iedriver" }
 //                ,
 //                    { "opera" }
 //                ,
@@ -75,14 +80,17 @@ public class ParentTest {
                 + "\\" + this.getClass().getSimpleName() + "\\" +
                 this.testName.getMethodName() + ".jpg";
 
-        if ("chrome".eqals(browser)) {
+
+        if ("chrome".equals(browser)) {
             log.info("Chrome will be started");
             File fileFF = new File(".././drivers/chromedriver.exe");
             System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
+            driver = new ChromeDriver();
             log.info("Chrome is started");
         }else if ("iedriver".equals(browser)) {
             log.info("IE will be started");
-            File file1 = new File(".././drivers/IEDriverServer.exe");
+ //           File file1 = new File(".././drivers/IEDriverServer.exe");
+            File file1 = new File("/IEDriverServer.exe");
             System.setProperty("webdriver.ie.driver", file1.getAbsolutePath());
             DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
             capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
@@ -90,9 +98,18 @@ public class ParentTest {
             capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             driver = new InternetExplorerDriver();
             log.info(" IE is started");
+        } else if ("fireFox".equals(browser)) {
+            log.info("FireFox will be started");
+            File fileFF = new File(".././drivers/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.setPreference("browser.startup.page", 0); // Empty start page
+            profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
+            driver = new FirefoxDriver();
+            log.info(" FireFox is started");
         }
 
-        driver = new ChromeDriver();
+
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
