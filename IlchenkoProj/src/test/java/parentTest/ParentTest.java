@@ -1,5 +1,6 @@
 package parentTest;
 
+import libs.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -43,6 +44,7 @@ public class ParentTest {
     private String pathToSreenShot;
     private String browser;
     Logger log;
+    public ExcelDriver excelDriver;
 
 
 
@@ -98,6 +100,8 @@ public class ParentTest {
         homePage = new HomePage(driver);
         sparePage = new SparePage(driver);
         editSparePage = new EditSparePage(driver);
+
+        excelDriver = new ExcelDriver();
 
     }
 
