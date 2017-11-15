@@ -14,7 +14,8 @@ import java.util.Collection;
 public class UnvalidLoginWithParams extends ParentTest {
     String login, pass; // параметры для запуска параметризированого теста
 
-    public UnvalidLoginWithParams(String login, String pass) { // создаем конструктор дял настройки класа
+    public UnvalidLoginWithParams(String browser ,String login, String pass) { // создаем конструктор дял настройки класа
+        super(browser);
         this.login = login;                         // сколько даных в конструкторе столько будет
         this.pass = pass;                                 // вариантов на каждый тест в классе;
     }

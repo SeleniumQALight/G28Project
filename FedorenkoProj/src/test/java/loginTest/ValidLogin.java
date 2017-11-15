@@ -7,6 +7,11 @@ import parentTest.ParentTest;
  * Created by Aleksandr on 13.11.2017.
  */
 public class ValidLogin extends ParentTest {
+
+    public ValidLogin(String browser) {
+        super(browser);
+    }
+
     @Test
     public void validLogIn() {
         loginPage.openPageLogin();
