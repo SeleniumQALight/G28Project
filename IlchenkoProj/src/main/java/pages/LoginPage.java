@@ -2,6 +2,7 @@ package pages;
 
 
 import libs.ActionsWithOursWebElements;
+import libs.ConfigData;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -10,11 +11,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends ParentPage {
 
-    WebDriver webDriver;
-    Logger logger;
-    ActionsWithOursWebElements actionsWithOursWebElements;
+//    WebDriver webDriver;
+//    Logger logger;
+//    ActionsWithOursWebElements actionsWithOursWebElements;
 
     @FindBy(name = "_username")
     WebElement inputLogin;
@@ -24,16 +25,20 @@ public class LoginPage {
     WebElement buttonLogin;
 
     public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        logger = Logger.getLogger(getClass());
-        actionsWithOursWebElements = new ActionsWithOursWebElements(webDriver);
-        PageFactory.initElements(webDriver, this);
-
+        super(webDriver);
     }
+
+//    public LoginPage(WebDriver webDriver) {
+//        this.webDriver = webDriver;
+//        logger = Logger.getLogger(getClass());
+//        actionsWithOursWebElements = new ActionsWithOursWebElements(webDriver);
+//        PageFactory.initElements(webDriver, this);
+//
+//    }
 
     public void openPageLogin() {
         try {
-            webDriver.get("http://v3.test.itpmgroup.com/login");
+            webDriver.get(ConfigData.getCfgValue("base_url") + "/login");
             logger.info("Page login was opened");
         } catch (Exception e) {
             logger.error("Can not open URL");
