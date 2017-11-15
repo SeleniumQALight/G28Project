@@ -7,6 +7,10 @@ import parentTest.ParentTest;
 
 public class SdelkiTest extends ParentTest {
 
+    public SdelkiTest(String browser) {
+        super(browser);
+    }
+
     @Test
     public void addNewSdelka(){
         String dropdownDayValue = "3";

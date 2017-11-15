@@ -14,8 +14,9 @@ public class ChangeNameInProfile extends ParentTest {
         loginPage.clickOnButtonLogin();
         homePage.clickOnAvatar();
         homePage.clickOnButtonMyProfile();
-        homePage.changeProfileName("Student");
+        homePage.changeProfileName("Student2");
         homePage.saveChangesToMyProfile();
         checkAcceptanceCriteria("Profile name wasn't changes", homePage.isNewProfileNameIsPresent("Student"), true);
+        //checkAcceptanceCriteria("Profile name wasn't changes","Student2", "Student2");
     }
 }
