@@ -1,5 +1,6 @@
 package parentTest;
 
+import libs.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -41,6 +42,7 @@ public class ParentTest {
     private String pathToScreenShot;
     private String browser;
     Logger log;
+    public ExcelDriver excelDriver;
 
     @Rule
     public TestName testName = new TestName();
@@ -55,9 +57,9 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
 //               {"fireFox"}
 //               ,
-                {"chrome"}
+//                {"chrome"}
 //                ,
-//                { "iedriver" }
+                { "iedriver" }
 //                ,
 //                    { "opera" }
 //                ,
@@ -107,6 +109,8 @@ public class ParentTest {
         homePage = new HomePage(driver);
         sparePage = new SparePage(driver);
         editSparePage = new EditSparePage(driver);
+
+        excelDriver = new ExcelDriver();
 
     }
 
