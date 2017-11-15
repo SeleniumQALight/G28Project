@@ -1,5 +1,6 @@
 package parentTest; // Родитель всех тестов
 
+import libs.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -16,7 +17,6 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.HomePage;
 import pages.LoginPage;
-import pages.ServicePage;
 import pages.SparePage;
 
 import java.io.File;
@@ -35,11 +35,12 @@ public class ParentTest {
     //переменная
     public LoginPage loginPage;
     public HomePage homePage;
-    public ServicePage servicePage;
+
     public SparePage sparePage;
 
     private String browser;
     Logger log;
+    public ExcelDriver excelDriver;
 
 
     private Utils utils = new Utils();
@@ -118,9 +119,10 @@ public class ParentTest {
 
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
-        servicePage = new ServicePage(driver);
+        //servicePage = new ServicePage(driver);
         sparePage = new SparePage(driver);
 
+        excelDriver = new ExcelDriver();
 
     }
 
