@@ -33,9 +33,9 @@ public class Utils {
         }
     }
 
-    public void threadWait(){
+    public void threadWait(int msec){
         try {
-            Thread.sleep(1000);
+            Thread.sleep(msec);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

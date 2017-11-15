@@ -2,17 +2,22 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
+    WebDriverWait webDriverWait20;
 
     public ActionsWithOurWebElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
     }
 
     public void enterTextIntoInput(WebElement input, String text) {
@@ -29,10 +34,12 @@ public class ActionsWithOurWebElements {
 
     public void clickOnWebElement(WebElement element) {
         try {
+            webDriverWait20.until(ExpectedConditions.visibilityOf(element));
+            //webDriverWait20.until(ExpectedConditions.not(ExpectedConditions.visibilityOf(element)))
             element.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
-            logger.error("Can not work with element " + element.getTagName() );
+            logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
@@ -61,24 +68,38 @@ public class ActionsWithOurWebElements {
         try {
             Select valuesFromDD = new Select(elementDD);
             valuesFromDD.selectByValue(valueForSelect);
-            logger.info(valueForSelect + "was selected in DD");
+            logger.info(valueForSelect + " was selected in DD");
         } catch (Exception e) {
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
 
-    public void setStateToCheckBox(WebElement checkBoxElement, boolean checkboxValue) {
-        try {
-            if (checkBoxElement.isSelected() == checkboxValue) {
-                logger.info("Checkbox status was already set to " + checkboxValue + " . no actions have been taken");
-            } else {
-                checkBoxElement.click();
-                logger.info("Checkbox status was set to " + checkBoxElement.isSelected());
+    /**
+     *
+     * @param checkBoxElement
+     * @param neededState !! Only Checked or Unchecked
+     */
+    public void setStateToCheckBox(WebElement checkBoxElement, String neededState) {
+            //Assert.assertEquals("Not expected status", "Checked" , neededState);
+
+            if (checkBoxElement.isSelected() && "Checked".equals(neededState)) {
+                logger.info("Element is checked");
+            } else if (checkBoxElement.isSelected() && "Unchecked".equals(neededState)) {
+                clickOnWebElement(checkBoxElement);
+            } else if (! checkBoxElement.isSelected() && "Checked".equals(neededState)) {
+                clickOnWebElement(checkBoxElement);
+            } else if (! checkBoxElement.isSelected() && "Unchecked".equals(neededState)) {
+                logger.info("Element is Unchecked");
             }
+    }
+
+    public boolean isElementPresent(String locator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(locator));
+            return webElement.isDisplayed() && webElement.isEnabled();
         } catch (Exception e) {
-            logger.error("Can not work with element");
-            Assert.fail("Can not work with element");
+            return false;
         }
     }
 }

@@ -7,6 +7,10 @@ import parentTest.ParentTest;
 public class AddNewSpare extends ParentTest {
     final private String testSpare = "Spare2";
 
+    public AddNewSpare(String browser) {
+        super(browser);
+    }
+
     @Test
     public void addNewSPare() {
         loginPage.loginUser("Student", "909090");
@@ -15,6 +19,14 @@ public class AddNewSpare extends ParentTest {
         homePage.clickOnMenuDictionary();
         homePage.clickonSubmenuSpare();
         sparePage.checkZagolovok("Запчасти Список");
+        sparePage.clickNewButton();
+        editSparePage.checkZagolovok("Словарь");
+        editSparePage.enterTextInToInputSpareName(testSpare);
+        editSparePage.selectTextDropDownSpareType("Датчики");
+        editSparePage.clickOnAddButton();
+        sparePage.checkZagolovok("Запчасти Список");
+        checkAcceptanceCriteria(testSpare + " Can not find spare in List ",
+                sparePage.isSpareinList(testSpare),true);
 
         }
 

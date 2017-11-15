@@ -1,18 +1,13 @@
 package pages;
 
-import libs.ActionsWithOurWebElements;
-import org.apache.log4j.Logger;
+import libs.ConfigData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 
-public class LoginPage {
-    WebDriver webDriver;
-    Logger logger;
-    ActionsWithOurWebElements actionsWithOurWebElements;
+public class LoginPage extends ParrentPage {
 
     @FindBy(xpath = ".//*[@class='login-box']")
     WebElement logInBox;
@@ -25,20 +20,18 @@ public class LoginPage {
     @FindBy(tagName = "button")
     WebElement buttonLogin;
 
-
     public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        logger = Logger.getLogger(getClass());
-        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
-        PageFactory.initElements(webDriver, this);
+        super(webDriver);
     }
 
 
     public void openPageLogin() {
         try {
-            webDriver.get("http://v3.test.itpmgroup.com/login");
+            //webDriver.get(ConfigData.getCfgValue(("base_url")+"/login"));
+            webDriver.get(ConfigData.getCfgValue("base_url"));
             logger.info("Page Login was opened");
         } catch (Exception e) {
+
             logger.error("Can not open URL");
             Assert.fail("Can not open URL");
 
@@ -76,4 +69,6 @@ public class LoginPage {
             enterPasswordIntoInputPass(pass);
             clickOnLoginButton();
     }
+
+
 }
