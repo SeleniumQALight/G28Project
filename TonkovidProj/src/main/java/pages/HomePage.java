@@ -15,6 +15,9 @@ public class HomePage extends ParentPage {
     @FindBy(id = "spares")
     private WebElement subMenuSpare;
 
+    @FindBy(xpath = ".//*[@id='deal']/a")
+    private WebElement menuDeals;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -30,4 +33,6 @@ public class HomePage extends ParentPage {
     public void clickOnSubMenuSpare() {
         actionsWithOurWebElements.clickOnWebElement(subMenuSpare);
     }
+
+    public void clickOnMenuDeals() { actionsWithOurWebElements.clickOnWebElement(menuDeals);}
 }

@@ -6,6 +6,9 @@ import parentTest.ParentTest;
 public class LogOutTest extends ParentTest {
 
 
+    public LogOutTest(String browser) {
+        super(browser);
+    }
 
     @Test
     public void logOutFromSite (){
