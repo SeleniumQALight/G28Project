@@ -1,5 +1,6 @@
 package parentTest;
 
+import lib.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -30,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 import static org.hamcrest.CoreMatchers.is;
 
 
-@RunWith(value =  Parameterized.class)
+@RunWith(value = Parameterized.class)
 
 public class ParentTest {
     public WebDriver driver;    // must be whithout publick
@@ -42,10 +43,11 @@ public class ParentTest {
     Logger log;
 
 
-
     public Utils utils = new Utils();   // must be private
     private boolean isTestPass = false;
     public String pathToScreenShot;     // must be private
+
+    public ExcelDriver excelDriver;
 
     @Rule
     public TestName testName = new TestName();
@@ -53,7 +55,6 @@ public class ParentTest {
     public ParentTest(String browser) {
         this.browser = browser;
         log = Logger.getLogger(getClass());
-
     }
 
 
@@ -64,7 +65,7 @@ public class ParentTest {
 ////                ,
                 {"chrome"}
 //                ,
-//                { "iedriver" }
+//               { "iedriver" }
 //                ,
 //                    { "opera" }
 //                ,
@@ -73,6 +74,7 @@ public class ParentTest {
 //                {"remote"}
         });
     }
+
 
     @Before
     public void setUp() {
@@ -87,10 +89,10 @@ public class ParentTest {
             System.setProperty("webdriver.chrome.driver", fileFF.getAbsolutePath());
             driver = new ChromeDriver();
             log.info("Chrome is started");
-        }else if ("iedriver".equals(browser)) {
+        } else if ("iedriver".equals(browser)) {
             log.info("IE will be started");
- //           File file1 = new File(".././drivers/IEDriverServer.exe");
-            File file1 = new File("/IEDriverServer.exe");
+            File file1 = new File(".././drivers/IEDriverServer.exe");
+            //           File file1 = new File("/IEDriverServer.exe");
             System.setProperty("webdriver.ie.driver", file1.getAbsolutePath());
             DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
             capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
@@ -117,34 +119,35 @@ public class ParentTest {
         sparePage = new SparePage(driver);
         editSparePage = new EditSparePage(driver);
 
+        excelDriver = new ExcelDriver();
+
 
     }
 
     @After
     public void tearDown() {
-        if (!isTestPass ){
-            utils.screenShot(pathToScreenShot,driver);
+        if (!isTestPass) {
+            utils.screenShot(pathToScreenShot, driver);
         }
         driver.quit();
     }
 
-    protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected){
-        if (actual != expected){
-            utils.screenShot(pathToScreenShot,driver);
+    protected void checkAcceptanceCriteria(String message, boolean actual, boolean expected) {
+        if (actual != expected) {
+            utils.screenShot(pathToScreenShot, driver);
         }
-        Assert.assertThat(message,actual,is(expected));
+        Assert.assertThat(message, actual, is(expected));
         isTestPass = true;
     }
 
     protected void checkAcceptanceCriteria(String message, String actual
-            , String expected){
-        if (!actual.equals(expected)){
-            utils.screenShot(pathToScreenShot,driver);
+            , String expected) {
+        if (!actual.equals(expected)) {
+            utils.screenShot(pathToScreenShot, driver);
         }
-        Assert.assertThat(message,actual,is(expected));
+        Assert.assertThat(message, actual, is(expected));
         isTestPass = true;
     }
-
 
 
 }
