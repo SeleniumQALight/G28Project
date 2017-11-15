@@ -1,9 +1,12 @@
 package logInTest;
 
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
 import parentTest.ParentTest;
 
-public class LoginTest extends ParentTest{
+public class ValidLogin extends ParentTest {
+
     @Test
     public void validLogin(){
         loginPage.openPageLogin();
@@ -13,5 +16,4 @@ public class LoginTest extends ParentTest{
         checkOnAcceptanceCriteria("Avatar is not present", homePage.isAvatarPresent(), true);
         checkAcceptanceCriteria("Title is not excepted", homePage.getTitle(),"Учет запчастей");
     }
-
 }
