@@ -7,6 +7,10 @@ public class TypeSdelkiTest extends ParentTest {
 
     final private String TEST_SDELKI = "SdelkiAntonenko1";
 
+    public TypeSdelkiTest(String browser) {
+        super(browser);
+    }
+
     @Test
     public void addTypeSdelki() {
 

@@ -8,6 +8,10 @@ public class RemoveDictionaryAppart extends ParentTest {
     final private String apparatNumber = "12112017";
     final private String apparatComment = "BilousTestComment";
 
+    public RemoveDictionaryAppart(String browser) {
+        super(browser);
+    }
+
     @Test
     public void removeDictApparat() {
         loginPage.loginUser("Student","909090");

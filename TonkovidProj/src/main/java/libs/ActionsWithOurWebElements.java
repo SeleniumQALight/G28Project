@@ -12,12 +12,8 @@ public class ActionsWithOurWebElements {
     WebDriver webDriver;
     Logger logger;
 
-    /**
-     *
-     * @param webDriver
-     */
-    public void ActionsWhithOurElements (WebDriver webDriver){
-        this.webDriver = webDriver;
+    public ActionsWithOurWebElements(WebDriver webDriver) {
+        this.webDriver=webDriver;
         logger = Logger.getLogger(getClass());
     }
 

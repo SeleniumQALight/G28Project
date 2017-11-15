@@ -20,20 +20,20 @@ public class LoginPage {
     @FindBy(name = "_password")
     WebElement inputPassWord;
 
-    @FindBy(tagName = "button")
+    @FindBy(xpath = ".//*[@type='submit']")
     WebElement buttonLogIn;
 
 
     public LoginPage(WebDriver webDriver) {
         this.webDriver = webDriver;
         logger = Logger.getLogger(getClass());
-        ActionsWithOurWebElements actionsWithOurWebElements;
+
 
     }
 
     public void openPageLogin() {
             try {
-                webDriver.get("thttp://v3.test.itpmgroup.com/login");
+                webDriver.get("http://v3.test.itpmgroup.com/");
                 logger.info("page login was opened");
             } catch (Exception e) {
                 logger.error("cant open url");
