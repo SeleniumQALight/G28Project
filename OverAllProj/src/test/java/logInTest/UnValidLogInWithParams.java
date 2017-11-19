@@ -26,7 +26,6 @@ public class UnValidLogInWithParams extends ParentTest {
         return Arrays.asList(new Object[][]{
                 {"chrome","Student","906090"},
                 {"iedriver","Student","906090"},
-
                 {"chrome","Student","909090"},
                 {"chrome","Student","90909"}
         });

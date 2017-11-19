@@ -21,12 +21,6 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//*[@class='pull-left']//a")
     WebElement buttonMyProfile;
 
-    @FindBy(id = "userProfileEdit_user_name")
-    WebElement inputProfileName;
-
-    @FindBy(name="save")
-    WebElement buttonSaveChangesMyProfile;
-
     @FindBy(xpath = ".//div[@class='user-panel']//div//p")
     WebElement userNameHomepage;
 
@@ -67,18 +61,6 @@ public class HomePage extends ParentPage {
 
     public void clickOnButtonMyProfile() {
         actionsWithOurWebElements.clickOnWebElement(buttonMyProfile);
-    }
-
-    public void changeProfileName(String newName) {
-        actionsWithOurWebElements.enterTextIntoInput(inputProfileName, newName);
-    }
-
-    public void saveChangesToMyProfile() {
-        actionsWithOurWebElements.clickOnWebElement(buttonSaveChangesMyProfile);
-    }
-
-    public boolean isNewProfileNameIsPresent(String profileName) {
-        return webDriver.findElement(By.xpath(".//span[contains(text(), '"+ profileName+"')]")).getText().equalsIgnoreCase(profileName);
     }
 
     public void clickOnMenuDictionary() {

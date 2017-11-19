@@ -1,5 +1,6 @@
 package pages;// Описание страницы LoginPage
 
+import lib.ConfigData;
 import libs.ActionsWithOurWebElements;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -10,13 +11,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class LoginPage {
+public class LoginPage extends ParentPage{
 
-    // созд локальн переменную
-    WebDriver webDriver;
-    // добавляем Logger - log4j
-    Logger logger;
-    ActionsWithOurWebElements actionsWithOurWebElements;
+//    // созд локальн переменную
+//    WebDriver webDriver;
+//    // добавляем Logger - log4j
+//    Logger logger;
+//    ActionsWithOurWebElements actionsWithOurWebElements;
 
 
     // сколько элементов на странице = столько и @FindBy
@@ -37,23 +38,28 @@ public class LoginPage {
     @FindBy(tagName = "button")
     WebElement buttonLogin;
 
-    // из теста передаем объект драйвера
-    // конструктор
     public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-        logger = Logger.getLogger(getClass());
-        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
-        //создает объекты описанные анотацией @FindBy
-        PageFactory.initElements(webDriver, this);
-
+        super(webDriver);
     }
+
+//    // из теста передаем объект драйвера
+//    // конструктор
+//    public LoginPage(WebDriver webDriver) {
+//        this.webDriver = webDriver;
+//        logger = Logger.getLogger(getClass());
+//        actionsWithOurWebElements = new ActionsWithOurWebElements(webDriver);
+//        //создает объекты описанные анотацией @FindBy
+//        PageFactory.initElements(webDriver, this);
+//
+//    }
 
     // метод для открытия страницы
     public void openPageLogin() {
 
         try {
             //открой нам URL
-            webDriver.get("http://v3.test.itpmgroup.com/login");
+           // webDriver.get("http://v3.test.itpmgroup.com/login");
+            webDriver.get(ConfigData.getCfgValue("base_url")+"/login");
             logger.info("Page login was opened");
         } catch (Exception e) {
             //сообщает и валит  останавливает тест
