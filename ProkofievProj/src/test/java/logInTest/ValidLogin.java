@@ -4,6 +4,10 @@ import org.junit.Test;
 import parentTest.ParentTest;
 
 public class ValidLogin extends ParentTest{
+    public ValidLogin(String browser) {
+        super(browser);
+    }
+
     @Test
     public void validLogIn() {
         loginPage.openPageLogin();
