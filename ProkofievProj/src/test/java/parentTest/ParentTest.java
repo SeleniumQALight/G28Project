@@ -53,9 +53,9 @@ public class ParentTest {
         return Arrays.asList(new Object[][]{
 //               {"fireFox"}
 ////                ,
-//                {"chrome"}
+                {"chrome"}
 //                ,
-                {"iedriver"}
+//                {"iedriver"}
 //                ,
 //                    { "opera" }
 //                ,
