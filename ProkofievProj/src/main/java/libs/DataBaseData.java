@@ -21,12 +21,12 @@ public class DataBaseData {
 	}
 	
 	public String getSomeValue(String someData) throws SQLException, ClassNotFoundException, IOException{
-		//log.info("Данные будут выбраны");
+		//log.info("Р”Р°РЅРЅС‹Рµ Р±СѓРґСѓС‚ РІС‹Р±СЂР°РЅС‹");
 		log.info("someData = " + someData);
 		dB = new Database("PADB_DB","Oracle");
 		String someValue1 = dB.selectValue("select HASH,CREATE_DATE from cs_check_portal where " + someData + "");
 		return someValue1;
-		//log.info("Данные выбраны");
+		//log.info("Р”Р°РЅРЅС‹Рµ РІС‹Р±СЂР°РЅС‹");
 	}
 	
 }
