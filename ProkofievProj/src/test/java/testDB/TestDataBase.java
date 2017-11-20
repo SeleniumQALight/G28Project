@@ -28,6 +28,9 @@ public class TestDataBase {
     @Test
     public void testWithDataBase() throws SQLException {
         List<Map<String,String>> testData = database.selectTable("select * from seleniumTable");
-        logger.info(testData);
+        logger.info(testData.get(1));
+        database.modifyTable("INSERT INTO seleniumTable VALUES (2,'prokofiev','1234')");
+
+        logger.info(database.selectTable("select * from seleniumTable where login = 'prokofiev'"));
     }
 }
