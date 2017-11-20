@@ -1,6 +1,7 @@
 package parentTest;
 
 import Pages.*;
+import libs.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -12,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -33,10 +36,12 @@ public class ParentTest {
     public EditStoronySdelokPage editStoronySdelokPage;
     public SparePage sparePage;
     public EditSparePage editSparePage;
+    public ProfilePage profilePage;
     private Utils utils = new Utils();
     private boolean isTestPass = false;
     private String pathToScreenShot;
     private String browser;
+    public ExcelDriver excelDriver;
     Logger log;
 
     @Rule
@@ -50,11 +55,11 @@ public class ParentTest {
     @Parameterized.Parameters
     public static Collection testData() throws IOException {
         return Arrays.asList(new Object[][]{
-//               {"fireFox"}
-////                ,
-//                {"chrome"}
+               {"firefox"}
+                ,
+                {"chrome"}
 //                ,
-                {"iedriver"}
+//                {"iedriver"}
 //                ,
 //                    { "opera" }
 //                ,
@@ -84,6 +89,15 @@ public class ParentTest {
             capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             driver = new InternetExplorerDriver();
             log.info(" IE is started");
+        } else if ("firefox".equals(browser)) {
+            log.info("FireFox will be started");
+            File fileFF = new File(".././drivers/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+            //FirefoxProfile profile = new FirefoxProfile();
+            //profile.setPreference("browser.startup.page", 0); // Empty start page
+            //profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
+            driver = new FirefoxDriver();
+            log.info(" FireFox is started");
         }
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -94,6 +108,10 @@ public class ParentTest {
         editStoronySdelokPage = new EditStoronySdelokPage(driver);
         sparePage = new SparePage(driver);
         editSparePage = new EditSparePage(driver);
+        profilePage = new ProfilePage(driver);
+
+        excelDriver = new ExcelDriver();
+
     }
 
     @After

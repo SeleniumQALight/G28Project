@@ -1,6 +1,7 @@
 package parentTest;
 
 import Pages.*;
+import libs.ExcelDriver;
 import libs.Utils;
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -12,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -43,6 +46,7 @@ public class ParentTest {
     private String pathToScreenShot;
     private String browser;
     Logger log;
+    public ExcelDriver excelDriver;
 
     @Rule
     public TestName testName = new TestName();
@@ -56,11 +60,11 @@ public class ParentTest {
     @Parameterized.Parameters
     public static Collection testData() throws IOException {
         return Arrays.asList(new Object[][]{
-//               {"fireFox"}
-////                ,
-              {"chrome"}
- //               ,
- //               { "iedriver" }
+   //        {"fireFox"}
+   //            ,
+          {"chrome"}
+     //        ,
+      //   { "iedriver" }
 //                ,
 //                    { "opera" }
 //                ,
@@ -93,6 +97,16 @@ public class ParentTest {
             capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
             driver = new InternetExplorerDriver();
             log.info(" IE is started");
+        } else if ("fireFox".equals(browser)) {
+            log.info("FireFox will be started");
+            File fileFF = new File(".././drivers/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+            FirefoxProfile profile = new FirefoxProfile();
+            profile.setPreference("browser.startup.page", 0); // Empty start page
+            profile.setPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page
+            driver = new FirefoxDriver();
+            log.info(" FireFox is started");
+
         }
 
 
@@ -110,6 +124,8 @@ public class ParentTest {
         editApparatPage = new EditApparatPage(driver);
         typeSdelkiPage = new TypeSdelkiPage(driver);
         editTypeSdelkiPage = new EditTypeSdelkiPage(driver);
+
+        excelDriver = new ExcelDriver();
 
 
     }

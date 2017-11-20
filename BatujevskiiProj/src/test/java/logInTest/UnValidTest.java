@@ -16,7 +16,8 @@ public class UnValidTest extends ParentTest {
    String login, pass;
 // конструктор
 
-    public UnValidTest(String login, String pass) {
+    public UnValidTest(String browser, String login, String pass) {
+        super(browser);
         this.login = login;
         this.pass = pass;
     }
@@ -24,13 +25,15 @@ public class UnValidTest extends ParentTest {
 
 // блок параметров
     @Parameterized.Parameters
-    public static Collection testDData()    {
-        return Arrays.asList(new Object[][]{
-                {"Student","906090"},
-                {"tudent","909090"},
-                {"student","9090"}
-        });
-    }
+    public static Collection testDData(){
+    return Arrays.asList(new Object[][]{
+            {"chrome","Student","906090"},
+            {"iedriver","Student","906090"},
+
+            {"chrome","Student","909090"},
+            {"chrome","Student","90909"}
+    });
+}
 
 
 
