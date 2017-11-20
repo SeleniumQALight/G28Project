@@ -129,6 +129,18 @@ public class Database {
         return resultSet;
     }
 
+    /**
+     * Method for Update, Insert and Delete
+     * @param query
+     * @return
+     * @throws SQLException
+     */
+    public int modifyTable(String query) throws SQLException {
+        Statement stm = connection.createStatement();
+        int effectedRows = stm.executeUpdate(query);
+        stm.close();
+        return effectedRows;
+    }
 
     /*
      *  That method gets SQL [Select COLUMN_NAME_1,COLUMN_NAME_2 from TABLE_NAME where ...] query as parameter and returns result set as List of Strings
