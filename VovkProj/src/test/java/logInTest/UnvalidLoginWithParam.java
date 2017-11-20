@@ -26,7 +26,7 @@ public class UnvalidLoginWithParam extends ParentTest {
         return Arrays.asList(new Object[][]{
                 //{"Student","906090"},
                 //{"Student","909090"},
-                {"chrome", "Student","90909"}
+                {"firefox", "Student","90909"}
         });
     }
 
