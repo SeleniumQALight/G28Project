@@ -1,14 +1,13 @@
-package otherPagesTests;
+package homeWorkTests;
 
 
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
 public class AddNewStoronaSdelok extends ParentTest{
-    final private String CUST_NAME = "Customer Name";
-    final private String CUST_ADDRESS = "Customer Address";
-    final private String CUST_PHONE = "Customer Phone";
+    final private String CUST_NAME = "Customer Name 2";
+    final private String CUST_ADDRESS = "Customer Address 2";
+    final private String CUST_PHONE = "Customer Phone 2";
 
     public AddNewStoronaSdelok(String browser) {
         super(browser);
@@ -31,6 +30,6 @@ public class AddNewStoronaSdelok extends ParentTest{
         editStoronySdelokPage.checkCheckBoxPrivatePerson("Checked");
         editStoronySdelokPage.clickOnAddButton();
         storonySdelokPage.checkZagolovok("Стороны сделок Список");
-        checkAcceptanceCriteria(CUST_NAME + " Can not find spare in list", storonySdelokPage.isStoronaSdelokInList(CUST_NAME), true );
+        checkAcceptanceCriteria("Can not find created element in list", storonySdelokPage.isStoronaSdelokInList(CUST_NAME, CUST_ADDRESS, CUST_PHONE), true );
     }
 }

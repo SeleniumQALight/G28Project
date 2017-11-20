@@ -18,7 +18,9 @@ public class StoronySdelokPage extends ParentPage{
         actionsWithOurWebElements.clickOnWebElement(buttonPlus);
     }
 
-    public boolean isStoronaSdelokInList(String customerName) {
-        return actionsWithOurWebElements.isElementPresent(".//*[text()='"+customerName + "']");
+    public boolean isStoronaSdelokInList(String customerName, String customerAddress, String customerPhone) {
+        return (actionsWithOurWebElements.isElementPresent(".//*[text()='"+customerName + "']") &
+                actionsWithOurWebElements.isElementPresent(".//*[text()='"+customerAddress + "']") &
+                actionsWithOurWebElements.isElementPresent(".//*[text()='"+customerPhone + "']"));
     }
 }
