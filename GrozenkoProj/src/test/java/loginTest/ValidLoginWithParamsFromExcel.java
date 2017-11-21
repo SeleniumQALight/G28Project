@@ -1,7 +1,7 @@
 package loginTest;
 
 
-import lib.ConfigData;
+import libs.ConfigData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

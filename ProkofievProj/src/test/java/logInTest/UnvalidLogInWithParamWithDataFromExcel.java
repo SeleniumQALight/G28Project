@@ -15,9 +15,9 @@ import java.util.Collection;
 
 @RunWith(value = Parameterized.class)
 public class UnvalidLogInWithParamWithDataFromExcel extends ParentTest {
-    String login, pass, browser;
+    String login, pass;
 
-    public UnvalidLogInWithParamWithDataFromExcel(String login, String pass, String browser) {
+    public UnvalidLogInWithParamWithDataFromExcel(String browser,String login, String pass) {
         super(browser);
         this.login = login;
         this.pass = pass;
@@ -35,14 +35,14 @@ public class UnvalidLogInWithParamWithDataFromExcel extends ParentTest {
     @Parameterized.Parameters
     public static Collection testData() throws IOException {
         InputStream spreadsheet = new FileInputStream(ConfigData.getCfgValue("DATA_FILE_PATH") + "testDataSuit.xls");
-        return new SpreadsheetData(spreadsheet, "InvalidLogOn").getData();      //2Р№ РїР°СЂР°РјРµС‚СЂ - СѓРєР°Р·С‹РІР°РµРј РЅР°Р·РІР°РЅРёРµ Р»РёСЃС‚Р° РІ РµРєСЃРµР»Рµ
+        return new SpreadsheetData(spreadsheet, "InvalidLogOn").getData();      //2й параметр - указываем название листа в екселе
     }
 
 
     @Test
     public void invalidLogIn() {
         loginPage.loginUser(login, pass);
-        checkAcceptanceCriteria("Title not match", loginPage.getTitle(), "Account of spare:РђРІС‚РѕСЂРёР·Р°С†РёСЏ");
+        checkAcceptanceCriteria("Title not match", loginPage.getTitle(), "Account of spare:Авторизация");
     }
 
 }
