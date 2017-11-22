@@ -31,5 +31,7 @@
     <module>ProkofievProj</module>
     <module>StepanenkoProj</module>
     <module>OverAllProj</module>
+    <module>KalininaProjNew</module>
+    <module>MaslukProjNew</module>
   </modules>
 </project>
