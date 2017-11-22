@@ -9,6 +9,9 @@ public class AddNewSpare extends ParentTest {
     // переменная , текст которой будем использовать в тесте
     final private String TEST_SPARE = "Spare1";
 
+    public AddNewSpare(String browser) {
+        super(browser);
+    }
 
     @Test
 //логинимся на странице
