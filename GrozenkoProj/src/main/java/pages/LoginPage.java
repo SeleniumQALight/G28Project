@@ -1,6 +1,6 @@
 package pages;// Описание страницы LoginPage
 
-import lib.ConfigData;
+import libs.ConfigData;
 import libs.ActionsWithOurWebElements;
 import org.junit.Assert;
 import org.openqa.selenium.By;
