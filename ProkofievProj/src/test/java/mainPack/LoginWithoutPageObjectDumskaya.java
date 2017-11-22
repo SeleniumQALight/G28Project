@@ -42,7 +42,7 @@ public class LoginWithoutPageObjectDumskaya {
         driver.findElement(By.xpath(".//input[@id='login']")).sendKeys("Student88");
         driver.findElement(By.xpath(".//input[@id='psw']")).sendKeys("909090");
         driver.findElement(By.name("submitbutton")).click();
-        Assert.assertTrue(driver.findElement(By.xpath(".//*/b[contains(text(),'Нет пользователя с такими е-мейлом и паролем')]"))
+        Assert.assertTrue(driver.findElement(By.xpath(".//*/b[contains(text(),'РќРµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ С‚Р°РєРёРјРё Рµ-РјРµР№Р»РѕРј Рё РїР°СЂРѕР»РµРј')]"))
                 .isDisplayed());
         driver.quit();
     }
