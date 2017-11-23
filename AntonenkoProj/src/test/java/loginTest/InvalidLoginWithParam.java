@@ -1,6 +1,7 @@
 package loginTest;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -27,7 +28,8 @@ public class InvalidLoginWithParam extends ParentTest {
         });
     }
 
-
+    // @Ignore Set before necessary test to skip
+    //@Ignore
     @Test
     public void invalidLogin(){
         loginPage.loginUser(login,pass);
