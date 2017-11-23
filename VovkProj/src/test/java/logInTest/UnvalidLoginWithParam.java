@@ -2,6 +2,7 @@ package logInTest;
 
 import Pages.HomePage;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -24,12 +25,13 @@ public class UnvalidLoginWithParam extends ParentTest {
     @Parameterized.Parameters
     public static Collection testDData(){
         return Arrays.asList(new Object[][]{
-                //{"Student","906090"},
-                //{"Student","909090"},
-                {"firefox", "Student","90909"}
+                {"chrome", "student","909090"},
+                {"chrome", "tudent","90909"},
+                {"chrome", "Student","90909"}
         });
     }
 
+    //@Ignore
     @Test
     public void unvalidLogin() {
         loginPage.loginUser(login, pass);

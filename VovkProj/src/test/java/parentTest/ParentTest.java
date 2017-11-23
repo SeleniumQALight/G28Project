@@ -55,8 +55,8 @@ public class ParentTest {
     @Parameterized.Parameters
     public static Collection testData() throws IOException {
         return Arrays.asList(new Object[][]{
-               {"firefox"}
-                ,
+ //              {"firefox"}
+ //               ,
                 {"chrome"}
 //                ,
 //                {"iedriver"}
