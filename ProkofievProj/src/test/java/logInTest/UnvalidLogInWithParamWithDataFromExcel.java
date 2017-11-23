@@ -35,14 +35,14 @@ public class UnvalidLogInWithParamWithDataFromExcel extends ParentTest {
     @Parameterized.Parameters
     public static Collection testData() throws IOException {
         InputStream spreadsheet = new FileInputStream(ConfigData.getCfgValue("DATA_FILE_PATH") + "testDataSuit.xls");
-        return new SpreadsheetData(spreadsheet, "InvalidLogOn").getData();      //2й параметр - указываем название листа в екселе
+        return new SpreadsheetData(spreadsheet, "InvalidLogOn").getData();      //2? ???????? - ????????? ???????? ????? ? ??????
     }
 
 
     @Test
     public void invalidLogIn() {
         loginPage.loginUser(login, pass);
-        checkAcceptanceCriteria("Title not match", loginPage.getTitle(), "Account of spare:Авторизация");
+        checkAcceptanceCriteria("Title not match", loginPage.getTitle(), "Account of spare:???????????");
     }
 
 }
