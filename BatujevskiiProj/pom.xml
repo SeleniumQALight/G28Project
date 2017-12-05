@@ -7,10 +7,10 @@
         <artifactId>G28Proj</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>BatukevskiiProj</groupId>
-    <artifactId>BatukevskiiProj</artifactId>
+    <groupId>BatujevskiiProj</groupId>
+    <artifactId>BatujevskiiProj</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>BatukevskiiProj</name>
+    <name>BatujevskiiProj</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -48,13 +48,46 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.18</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>2.20.1</version>
+            <type>maven-plugin</type>
+        </dependency>
     </dependencies>
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <parallel>classes</parallel>
+                    <threadCount>3</threadCount>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <resources>
             <resource>
                 <directory>src</directory>
             </resource>
         </resources>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>RELEASE</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

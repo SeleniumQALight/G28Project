@@ -1,6 +1,7 @@
 package logInTest;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -13,7 +14,7 @@ import java.util.Collection;
 public class UnvalidLogInWithParam extends ParentTest {
     String login, pass, browser;
 
-    public UnvalidLogInWithParam(String login, String pass, String browser) {
+    public UnvalidLogInWithParam(String browser, String login, String pass) {
         super(browser);
         this.login = login;
         this.pass = pass;
@@ -29,7 +30,7 @@ public class UnvalidLogInWithParam extends ParentTest {
     }
 
 
-
+ // @Ignore
     @Test
     public void invalidLogIn() {
         loginPage.loginUser(login, pass);
