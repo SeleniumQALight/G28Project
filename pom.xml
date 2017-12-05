@@ -33,5 +33,6 @@
     <module>OverAllProj</module>
     <module>KalininaProjNew</module>
     <module>MaslukProjNew</module>
+    <module>jBehaveProject</module>
   </modules>
 </project>
