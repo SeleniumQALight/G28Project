@@ -1,0 +1,2 @@
+maven goals for command line:
+clean verify -Dwebdriver.driver=chrome -Dmaven.test.failure.ignore=true
